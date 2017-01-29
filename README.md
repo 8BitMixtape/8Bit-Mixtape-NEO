@@ -8,6 +8,9 @@ Inspired by the bootloader for atmega by Christoph Haberer and other implementat
 Not found anything yet for attiny, except that's it's a bit more challenging to make bootloaders.
 * http://www.mikrocontroller.net/articles/Konzept_f%C3%BCr_einen_ATtiny-Bootloader_in_C
 
+Can we maybe use the same bootloader to program via blinking lights?
+* https://www.wayneandlayne.com/blinky_programmer/
+
 # Bootloader in progress
 see devel repo here: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
 
