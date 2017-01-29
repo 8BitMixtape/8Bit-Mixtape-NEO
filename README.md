@@ -28,6 +28,7 @@ we need:
 * Sync-clock input
 * CV input
 * Sound-progger input
+* 1 pin to communicate wiht the 8 NEO-pixels (is that cheating?)
 * what else?
 
 ![Schematic of the first prototype, in progress](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/8Bit-MixTape_schematics2.png)
