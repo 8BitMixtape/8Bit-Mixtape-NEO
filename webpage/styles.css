@@ -1,0 +1,9 @@
+body {
+    background: lightgreen;
+}
+textarea {
+    font-family: monospace;
+}
+#error {
+    font-size: 200%;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>8bitMixTape-SoundProg2085</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div>
+            <label for="hexfileInput">Hex file:</label>
+            <input type="file" id="hexfileInput" name="hexfileInput" accept=".hex">
+            <br/>
+            <textarea name="hexRaw" id="hexRaw" rows="16" cols="45"></textarea>
+            <div id="error"></div>
+            <div>decoded bytes:</div>
+            <textarea readonly name="hexDecoded" id="hexDecoded" rows="16" cols="45"></textarea>
+            <!-- <div>bit string:</div>
+            <textarea readonly name="bitString" id="bitString" rows="1" cols="45"></textarea> -->
+        </div>
+        <div>
+            Turn up volume and
+            <button type="button" id="playButton">Play</button>
+        </div>
+        <script src="decodeHexFile.js"></script>
+        <script src="generateAudio.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
