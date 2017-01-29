@@ -2,11 +2,11 @@
  New Attiny85 based edition with Bootloader to program it via sound
 
 Inspired by the bootloader by Christoph Haberer and other implementations by Fredrik...
-http://www.hobby-roboter.de/forum/viewtopic.php?f=4&t=127
-http://www.fredrikolofsson.com/f0blog/?q=node%2F596
+* http://www.hobby-roboter.de/forum/viewtopic.php?f=4&t=127
+* http://www.fredrikolofsson.com/f0blog/?q=node%2F596
 
 Not found anything yet for attiny, except that's it's a bit more challenging to make bootloaders.
-http://www.mikrocontroller.net/articles/Konzept_f%C3%BCr_einen_ATtiny-Bootloader_in_C
+* http://www.mikrocontroller.net/articles/Konzept_f%C3%BCr_einen_ATtiny-Bootloader_in_C
 
 # Bootloader in progress
 see devel repo here: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
