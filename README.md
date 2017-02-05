@@ -27,6 +27,15 @@ how to free even more pins on that little attiny85...
 
 ![Updated Schematics v0.5, Uwe's Redesign](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/Schematics_85SoundProg_MixTape_V05.png)
 
+* R1-5: 10K (Voltage dividers)
+* R6: 4K7 (Voltage dividers)
+* R7: 100 (NEO-Pixel data stabilizer)
+* R8: 100 (Output Filter
+* Pot1-2: 10K lin (Potentiometers)
+* C1: 100nF (SD-Prog de-coupling)
+* C2: 1uF (Output Filter)
+* C3: 100nF (Voltage stabilization)
+
 * PB0(pin5): Sound output (parallel LED)
 * PB1(pin6): kinda free pin, can be used for sync / gate signal and communication from the bootloader
 * PB2(pin7): (A1) Potentiometer (right), CV input
