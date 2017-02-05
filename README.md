@@ -25,6 +25,8 @@ see devel repo here:
 # Discussing the schematics
 how to free even more pins on that little attiny85...
 
+![Updated Schematics v0.5, Uwe's Redesign](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/Schematics_85SoundProg_MixTape_V05.png)
+
 we need:
 * 2 potentiometers
 * 2 push-buttons
@@ -36,4 +38,4 @@ we need:
 * 1 pin to communicate wiht the 8 NEO-pixels (is that cheating?)
 * what else?
 
-![Schematic of the first prototype, in progress](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/8Bit-MixTape_schematics2.png)
+![Old Schematic of the first prototype, in progress](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/8Bit-MixTape_schematics2.png)
