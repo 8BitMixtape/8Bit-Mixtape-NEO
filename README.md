@@ -27,14 +27,14 @@ how to free even more pins on that little attiny85...
 
 ![Updated Schematics v0.5, Uwe's Redesign](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/Schematics_85SoundProg_MixTape_V05.png)
 
-*PB0(pin5): Sound output (parallel LED)
-*PB1(pin6): kinda free pin, can be used for sync / gate signal and communication from the bootloader
-*PB2(pin7): (A1) Potentiometer (right), CV input
-*PB3(pin2): NEO-pixels
-*PB4(pin3): (A2) Potentiometer (left), SD-Prog Jack-3.5mm Input
-*PB5(pin1): (A0-reset) Buttons/Switch via Voltage-Dividers
-*GND(pin4):
-*Vcc(pin8): Power LED, stabilizing cap Vcc-GND. 
+* PB0(pin5): Sound output (parallel LED)
+* PB1(pin6): kinda free pin, can be used for sync / gate signal and communication from the bootloader
+* PB2(pin7): (A1) Potentiometer (right), CV input
+* PB3(pin2): NEO-pixels
+* PB4(pin3): (A2) Potentiometer (left), SD-Prog Jack-3.5mm Input
+* PB5(pin1): (A0-reset) Buttons/Switch via Voltage-Dividers
+* GND(pin4):
+* Vcc(pin8): Power LED, stabilizing cap Vcc-GND. 
 
 Others: Do we need extra caps for the NEO-pixels?
 
