@@ -12,7 +12,9 @@ Can we maybe use the same bootloader to program via blinking lights?
 * https://www.wayneandlayne.com/blinky_programmer/
 
 # Bootloader in progress
-see devel repo here: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
+see devel repo here: 
+* Iyoks devel: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
+* forked and improved by Chris: https://github.com/ChrisMicro/TinyAudioBoot
 
 # Boards are being designed atm...
 
