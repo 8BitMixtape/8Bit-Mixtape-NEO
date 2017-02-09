@@ -22,6 +22,8 @@ see devel repo here:
 
 ![First prototype is being etched and soldered](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/raw/master/boards/FirstPrototype_Neo03/IMG_20170129_015545_HDR.jpg)
 
+See more boards on the wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki/Boards
+
 # Discussing the schematics
 how to free even more pins on that little attiny85...
 
