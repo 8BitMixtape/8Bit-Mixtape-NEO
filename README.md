@@ -70,3 +70,17 @@ Interface:
 * 1 pin to communicate wiht the 8 NEO-pixels (is that cheating?)
 * what else?
 
+# The Beginning...
+
+Late night geeking at Iyok's ego-lab...
+
+![Late night geeking at Iyok's ego-lab](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/raw/master/boards/FirstPrototype_Neo03/IMG_20170127_191152.jpg)
+
+After years of geeking around wiht all these versions of 8bit Mixtapes...
+
+http://lifepatch.org/8-bit_Mixtape
+
+or 
+
+http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape
+
