@@ -1,5 +1,7 @@
 # 8bitMixTape-SoundProg2085
  New Attiny85 based edition with Bootloader to program it via sound
+ 
+ See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
 
 Inspired by the bootloader for atmega by Christoph Haberer and other implementations by Fredrik...
 * http://www.hobby-roboter.de/forum/viewtopic.php?f=4&t=127
