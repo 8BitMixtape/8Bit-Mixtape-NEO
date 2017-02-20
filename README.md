@@ -31,7 +31,7 @@ how to free even more pins on that little attiny85...
 
 ## Version 0.8 Final - Changed Sound to PB1
 
-![](Schematics_85SoundProg_MixTape_V08.png)
+![](https://raw.githubusercontent.com/wiki/8BitMixtape/8bitMixTape-SoundProg2085/Schematics_85SoundProg_MixTape_V08.png)
 
 Parts:
 * R1-4: 10K \(Voltage dividers\)
