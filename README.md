@@ -29,31 +29,32 @@ See more boards on the wiki: https://github.com/8BitMixtape/8bitMixTape-SoundPro
 # Discussing the schematics
 how to free even more pins on that little attiny85...
 
-## Version 0.6 updates from Chris
+## Version 0.8 Final - Changed Sound to PB1
 
-![Updated Schematics v0.5, Uwe's Redesign](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/Schematics_85SoundProg_MixTape_V06.png)
+![](Schematics_85SoundProg_MixTape_V08.png)
 
 Parts:
-* R1-4: 10K (Voltage dividers)
-* R5: 22K (Buttons to be tested)
-* R6: 47K (Buttons to be tested)
-* R7: 100 (NEO-Pixel data stabilizer)
-* R8: 100 (Output Filter)
-* Pot1-2: 10K lin (Potentiometers)
-* C1: 100nF (SD-Prog de-coupling)
-* C2: 1uF (Output Filter)
-* C3: 100nF (Voltage stabilization)
-* C4: 100nF (de-coupling output?)
+* R1-4: 10K \(Voltage dividers\)
+* R5: 10K \(Buttons to be tested\)
+* R6: 4K7 \(Buttons to be tested\)
+* R7: 100 \(NEO-Pixel data stabilizer\)
+* R8: 100 \(Output Filter\)
+* R9-10: LED resistor \(depends on color\)
+* Pot1-2: 10K lin \(Potentiometers\)
+* C1: 100nF \(SD-Prog de-coupling\)
+* C2: 1uF \(Output Filter\)
+* C3: 100nF \(Voltage stabilization\)
+* C4: 100nF \(de-coupling output?\)
 
 Pin Use:
-* PB0(pin5): Sound output (parallel LED)
-* PB1(pin6): NEO-pixels
-* PB2(pin7): (A1) Potentiometer (right), CV input
-* PB3(pin2): (A3) Buttons/Switch via Voltage-Dividers
-* PB4(pin3): (A2) Potentiometer (left), SD-Prog Jack-3.5mm Input
-* PB5(pin1): (A0 )kinda free pin, can be used for sync / gate signal and communication from the bootloader
-* GND(pin4):
-* Vcc(pin8): Power LED, stabilizing cap Vcc-GND. 
+* PB0\(pin5\): NEO-pixels
+* PB1\(pin6\): Sound output \(parallel LED\)
+* PB2\(pin7\): \(A1\) Potentiometer \(right\), CV input
+* PB3\(pin2\): \(A3\) Buttons/Switch via Voltage-Dividers
+* PB4\(pin3\): \(A2\) Potentiometer \(left\), SD-Prog Jack-3.5mm Input
+* PB5\(pin1\): \(A0 \)kinda free pin, can be used for sync / gate signal and communication from the bootloader
+* GND\(pin4\):
+* Vcc\(pin8\): Power LED, stabilizing cap Vcc-GND. 
 
 ## Older versions
 
