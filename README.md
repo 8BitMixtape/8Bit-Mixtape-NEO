@@ -21,7 +21,9 @@ see devel repo here:
 * upload the code. 
 
 double check the pins
+
 :#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85
+
 :#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85
 
 # Boards are being designed atm...
