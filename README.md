@@ -17,6 +17,12 @@ Can we maybe use the same bootloader to program via blinking lights?
 see devel repo here: 
 * Iyoks devel: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
 * forked and improved by Chris: https://github.com/ChrisMicro/TinyAudioBoot
+* set the fuses: avrdude -P /dev/ttyACM0 -b 19200 -c avrisp -p t85 -U efuse:w:0xfe:m -U hfuse:w:0xdd:m -U lfuse:w:0xe1:m
+* upload the code. 
+
+double check the pins
+#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85
+#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85
 
 # Boards are being designed atm...
 
