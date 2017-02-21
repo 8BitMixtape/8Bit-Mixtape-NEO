@@ -22,9 +22,9 @@ see devel repo here:
 
 double check the pins
 
-:#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85
+:#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85, Output and Bootloader LED
 
-:#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85
+:#define INPUTAUDIOPIN (1<<PB3) //PB3 pin 2 Attiny85, Sound-Prog Input
 
 # Boards are being designed atm...
 
