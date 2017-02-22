@@ -18,7 +18,7 @@ see devel repo here:
 * Iyoks devel: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
 * forked and improved by Chris: https://github.com/ChrisMicro/TinyAudioBoot
 * set the fuses: avrdude -P /dev/ttyACM0 -b 19200 -c avrisp -p t85 -U efuse:w:0xfe:m -U hfuse:w:0xdd:m -U lfuse:w:0xe1:m
-* upload the code. 
+* upload the code: avrdude -v -pattiny85 -c avrisp -P/dev/ttyACM0 -b19200 -Uflash:w:/.../AttinySound-master/AudioBoot/AudioBootAttiny85_InputPB3_LEDPB1.hex:i 
 
 double check the pins
 
