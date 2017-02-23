@@ -1,5 +1,7 @@
 # 8bitMixTape-SoundProg2085
- New Attiny85 based edition with Bootloader to program it via sound
+ New Attiny85 based edition with Bootloader to program it via sound.
+ 
+ See our first working prototype in the video: https://www.youtube.com/watch?v=9HnzJeK31R8
  
  See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
 
@@ -17,14 +19,7 @@ Can we maybe use the same bootloader to program via blinking lights?
 see devel repo here: 
 * Iyoks devel: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
 * forked and improved by Chris: https://github.com/ChrisMicro/TinyAudioBoot
-* set the fuses: avrdude -P /dev/ttyACM0 -b 19200 -c avrisp -p t85 -U efuse:w:0xfe:m -U hfuse:w:0xdd:m -U lfuse:w:0xe1:m
-* upload the code: avrdude -v -pattiny85 -c avrisp -P/dev/ttyACM0 -b19200 -Uflash:w:/.../AttinySound-master/AudioBoot/AudioBootAttiny85_InputPB3_LEDPB1.hex:i 
-
-double check the pins
-
-:#define LEDPORT (1<<PB1); //PB1 pin 5 Attiny85, Output and Bootloader LED
-
-:#define INPUTAUDIOPIN (1<<PB3) //PB3 pin 2 Attiny85, Sound-Prog Input
+* find all files, pre-compiled and examples by Chris: https://github.com/ChrisMicro/AttinySound
 
 # Boards are being designed atm...
 
@@ -33,6 +28,10 @@ double check the pins
 ![Making board in yogya](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/raw/master/boards/FirstPrototype_Neo03/AudioProgMixTape_MakingOf.png)
 
 See more boards on the wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki/Boards
+
+# Test your prototype
+
+Notes from our first testing phase: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki/Testing-the-prototype-Boards
 
 # Discussing the schematics
 how to free even more pins on that little attiny85...
