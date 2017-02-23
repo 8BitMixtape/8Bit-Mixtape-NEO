@@ -4,7 +4,7 @@ New Attiny85 based edition with Bootloader to program it via sound.
 ## First Working prototypes
 See our first working prototype in the video: https://www.youtube.com/watch?v=9HnzJeK31R8
 
-![Working prototype_taipei](8bitMixTape-SoundProg2085/boards/FirstPrototype_Neo03/Tokyo_prototype_overview.jpg)
+![Working prototype_taipei](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/FirstPrototype_Neo03/Tokyo_prototype_overview.jpg)
 
 See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
 
