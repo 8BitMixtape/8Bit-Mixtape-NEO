@@ -90,39 +90,25 @@ void playSound(long freq_Hz, long duration_ms)
   }
 }
 
-void setup()
-{
-#if defined (__AVR_ATtiny85__)
-  if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
-#endif
-
-  pixels.begin(); // This initializes the NeoPixel library.
-  pixels.setBrightness(40);
-
-  pinMode(SPEAKERPIN, OUTPUT);
-  //analogReference( INTERNAL2V56 );
-  playSound(1000, 100); // beep
-  rainbowCycle(5, 10);
-}
-
-
 /*
   uint8_t getButton()
-
+  
   return value:
   1: left button pressed
   2: right button pressed
   3: both buttons pressed
-  ADC values
+  ADC values for INTERNAL2V56
+  no button:1023, left:800, right:500, both:300
+  ADC values for normal AREF
   no button:512, left:341, right:248, both:200
 */
 
 uint8_t getButton()
 {
   uint8_t button = 0;
-  if (analogRead(BUTTONS_ADC) < 480) button = 1;
-  if (analogRead(BUTTONS_ADC) < 340) button = 2;
-  if (analogRead(BUTTONS_ADC) < 230) button = 3;
+  if (analogRead(BUTTONS_ADC) < 750) button = 1;
+  if (analogRead(BUTTONS_ADC) < 550) button = 2;
+  if (analogRead(BUTTONS_ADC) < 380) button = 3;
 
   return button;
 }
@@ -175,11 +161,26 @@ uint16_t analogReadScaled(uint8_t channel)
   return value * 2;
 }
 
+void setup()
+{
+#if defined (__AVR_ATtiny85__)
+  if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
+#endif
+
+  pixels.begin(); // This initializes the NeoPixel library.
+  pixels.setBrightness(40);
+
+  pinMode(SPEAKERPIN, OUTPUT);
+  analogReference( INTERNAL2V56 );
+  playSound(1000, 100); // beep
+  //rainbowCycle(5, 10);
+}
+
 void loop()
 {
   pixels.setBrightness(100);
-  uint16_t p1 = 1023 - analogReadScaled(POTI_LEFT);
-  uint16_t p2 = analogReadScaled(POTI_RIGHT);
+  uint16_t p1 = 1023 - analogRead(POTI_LEFT);
+  uint16_t p2 = analogRead(POTI_RIGHT);
 
   setColorAllPixel(0); // pixels off
 
@@ -197,7 +198,7 @@ void loop()
     playSound(p1 + 20, (p2 / 5) + 10);
   }
 
-  if (x == 3 && p1 < 80 && p2 < 80) {
+  if (x == 3 && p1 < 380 && p2 < 380) {
     pixels.setBrightness(40);
     rainbowCycle(3, 10);
   }
@@ -212,8 +213,8 @@ void rainbowCycle(uint8_t wait, uint8_t rounds) {
     for (i = 0; i < pixels.numPixels(); i++) {
       pixels.setPixelColor(i, Wheel(((i * 256 / pixels.numPixels()) + j) & 255));
     }
-    uint16_t brightosiech = analogReadScaled(POTI_RIGHT)>>2;
-    uint16_t speedosiech = analogReadScaled(POTI_LEFT)>>7;
+    uint16_t brightosiech = analogRead(POTI_RIGHT)>>2;
+    uint16_t speedosiech = analogRead(POTI_LEFT)>>7;
     pixels.setBrightness(brightosiech+5);
     pixels.show();
     delay(speedosiech);

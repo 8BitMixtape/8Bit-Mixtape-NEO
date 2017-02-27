@@ -89,9 +89,9 @@ void setup() {
   
   pixels.begin(); // This initializes the NeoPixel library.
   pinMode(SPEAKERPIN, OUTPUT);
-  pixels.setBrightness(255);
+  //pixels.setBrightness(255);
   //rainbowCycle(3,3);
-  delay (50);
+  //delay (50);
 }
 
 /*
