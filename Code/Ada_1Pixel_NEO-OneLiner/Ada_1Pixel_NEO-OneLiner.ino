@@ -105,8 +105,8 @@ uint8_t getButton()
 {
   uint8_t button = 0;
   if (analogRead(BUTTONS_ADC) < 450) button = 1;
-  if (analogRead(BUTTONS_ADC) < 320) button = 2;
-  if (analogRead(BUTTONS_ADC) < 230) button = 3;
+  if (analogRead(BUTTONS_ADC) < 100) button = 2;
+  if (analogRead(BUTTONS_ADC) < 50) button = 3;
 
   return button;
 }
@@ -164,7 +164,7 @@ void loop() {
       }
     if (outputStyle == 0) {
       pixels.setBrightness(255);
-      rainbowCycle(6,2);
+      rainbowCycle(100,2);
       pixels.setPixelColor(0, Wheel(count+7<<5));
       pixels.show();
       delay(10000);
@@ -196,9 +196,11 @@ void loop() {
   switch(count) {
      case 1: // a classic
        snd = (t|5) * ((t>>p1|t>>11)&p1&t>>3);
+       
        break;          
      case 3: // a classic
        snd = (t*(t>>8|t>>4))>>(t>>p1);
+       
        break;
      case 2: // a classic
        snd = t*t/p1;
