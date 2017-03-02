@@ -4,7 +4,7 @@ function decodeHexFile(str) {
     var segment= 0;
     var extended= 0;
 
-    function readLine(line) {
+    function readLine(line, lineIndex) {
         if(line[0]!==':') { //check start code
             console.log('read error: no colon at beginning of line');
         } else {
@@ -42,8 +42,8 @@ function decodeHexFile(str) {
                 sum= sum+data[i];
             }
             if(256-((byteCount+(address%255)+recordType+sum)&255)!=checksum) {
-                console.log('checksum error');
-                document.querySelector('#error').innerHTML= 'checksum error!';
+                console.log('checksum error in line '+lineIndex);
+                document.querySelector('#error').innerHTML= 'checksum error in line'+lineIndex;
             }
             if(recordType!=1) {
                 var addy= segment*16+address;
@@ -57,7 +57,7 @@ function decodeHexFile(str) {
     for(var i= 0; i<lines.length; i++) {
         var line= lines[i];
         if(line.length>0) {
-            readLine(line);
+            readLine(line, i);
         }
     }
     if(!eof) {

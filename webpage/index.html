@@ -10,16 +10,23 @@
             <label for="hexfileInput">Hex file:</label>
             <input type="file" id="hexfileInput" name="hexfileInput" accept=".hex">
             <br/>
-            <textarea name="hexRaw" id="hexRaw" rows="16" cols="45"></textarea>
+            <textarea name="hexRaw" id="hexRaw" rows="16" cols="50"></textarea>
             <div id="error"></div>
             <div>decoded bytes:</div>
-            <textarea readonly name="hexDecoded" id="hexDecoded" rows="16" cols="45"></textarea>
+            <textarea readonly name="hexDecoded" id="hexDecoded" rows="16" cols="50"></textarea>
             <!-- <div>bit string:</div>
-            <textarea readonly name="bitString" id="bitString" rows="1" cols="45"></textarea> -->
+            <textarea readonly name="bitString" id="bitString" rows="1" cols="50"></textarea> -->
         </div>
         <div>
             Turn up volume and
             <button type="button" id="playButton">Play</button>
+        </div>
+        <p></p>
+        <div>
+            Advanced settings:
+            <br/>silenceBetweenPages: <input type="number" min="0" max="1" value="0.02" step="0.001" name="silenceBetweenPages" id="silenceBetweenPages"> sec (default: 0.02)
+            <br/>startSequencePulses: <input type="number" min="0" max="500" value="40" step="1" name="startSequencePulses" id="startSequencePulses"> (default: 40)
+            <br/>manchesterNumberOfSamplesPerBit: <input type="number" min="0" max="50" value="4" step="1" name="manchesterNumberOfSamplesPerBit" id="manchesterNumberOfSamplesPerBit"> (default: 4)
         </div>
         <script src="decodeHexFile.js"></script>
         <script src="generateAudio.js"></script>

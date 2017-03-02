@@ -4,6 +4,9 @@ body {
 textarea {
     font-family: monospace;
 }
+input {
+    width: 40px;
+}
 #error {
     font-size: 200%;
 }

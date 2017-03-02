@@ -2,7 +2,7 @@ window.addEventListener('load', init, false);
 function init() {
 
     //--webaudio
-    var audioCtx, audio;
+    var audioCtx;
     try {
         window.AudioContext= window.AudioContext||window.webkitAudioContext;
         audioCtx= new AudioContext();
@@ -32,8 +32,11 @@ function init() {
             alert('Failed to load hex file');
         }
     }
+
+    //--hex decoded data
+    var res;
     document.querySelector('#hexRaw').onchange= function(e) {
-        var res= decodeHexFile(this.value);
+        res= decodeHexFile(this.value);
         var str= '';
         for(var i= 0; i<res.length; i++) {
             var a= res[i];
@@ -44,16 +47,17 @@ function init() {
             str= str+'\n';
         }
         document.querySelector('#hexDecoded').value= str;
-        audio= generateAudio(audioCtx);
     }
 
     //--play
     document.querySelector('#playButton').onclick= function() {
-        if(audio) {
-            var src= audioCtx.createBufferSource();
-            src.buffer= audio;
-            src.connect(audioCtx.destination);
-            src.start();
-        }
+        var silenceBetweenPages= document.querySelector('#silenceBetweenPages').value;
+    	var startSequencePulses= document.querySelector('#startSequencePulses').value;
+    	var manchesterNumberOfSamplesPerBit= document.querySelector('#manchesterNumberOfSamplesPerBit').value;
+        var audioData= generateAudio(audioCtx, res, silenceBetweenPages, startSequencePulses, manchesterNumberOfSamplesPerBit);
+        var src= audioCtx.createBufferSource();
+        src.buffer= audioData;
+        src.connect(audioCtx.destination);
+        src.start();
     }
 }
