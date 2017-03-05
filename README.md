@@ -42,7 +42,7 @@ Notes from our first testing phase: https://github.com/8BitMixtape/8Bit-Mixtape-
 
 ## Version 0.95 Final - Changed Sound to PB1
 
-![](https://raw.githubusercontent.com/wiki/8BitMixtape/8bitMixTape-SoundProg2085/Schematics_85SoundProg_MixTape_V08.png)
+![](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/images/schematics/NeopixelV095_uwe_updates.jpg)
 
 ## Older versions
 
