@@ -56,13 +56,9 @@ function init() {
     }
 
 
-
-    document.querySelector('#sendControlSignal').onclick= function() {
-
-        var var1 = parseInt(document.querySelector('#controlVar1').value);
-        var var2 = parseInt(document.querySelector('#controlVar2').value);
-
-        var sig = wg.generateControlSignal([var1,var2]);
+    var sendControl = function(arr)
+    {
+        var sig = wg.generateControlSignal(arr);        
         wg.playSignal(audioCtx, sig);
 
         //debug
@@ -72,6 +68,34 @@ function init() {
         }
         document.querySelector('#hexDecoded').value= res_sig;
 
+    }
+
+    document.querySelector('#controlVar1').onchange= function(e) {
+
+        var var1 = parseInt(document.querySelector('#controlVar1').value);
+        var var2 = parseInt(document.querySelector('#controlVar2').value);
+
+        sendControl([var1, var2]);
+
+
+    }
+
+    document.querySelector('#controlVar2').onchange= function(e) {
+
+        var var1 = parseInt(document.querySelector('#controlVar1').value);
+        var var2 = parseInt(document.querySelector('#controlVar2').value);
+
+        sendControl([var1, var2]);
+
+
+    }
+    
+    document.querySelector('#sendControlSignal').onclick= function() {
+
+        var var1 = parseInt(document.querySelector('#controlVar1').value);
+        var var2 = parseInt(document.querySelector('#controlVar2').value);
+
+        sendControl([var1, var2]);
 
 
     }
