@@ -182,10 +182,15 @@ HexToSignal.prototype.getDifferentialManchesterCodedSignal = function (hexdata) 
 				for (var n = 0; n < 8; n++) 
 				{
 					if((dat&0x80)==0)
+					{
 						this.manchesterEdge(false,counter,signal); // low bit
+					}
 					else
-						counter += this.manchesterNumberOfSamplesPerBit;	
+					{
+						this.manchesterEdge(true,counter,signal); // high bit
+					}
 
+					counter += this.manchesterNumberOfSamplesPerBit;	
 					dat = dat << 1; // shift to next bit
 				}
 		}
@@ -481,6 +486,7 @@ WavCodeGenerator.prototype.generateControlSignal = function (inputData) {
 		var manchesterPhase = 127;    // current phase for differential manchester coding
 		var manchesterNumberOfSamplesPerBit = 4; 
 		var synchronizationPreampleNumberOfBytes = 3;
+			
 		var dataLength = inputData.length;
 
 		var h2s = new HexToSignal(this.fullSpeedFlag);
@@ -489,6 +495,10 @@ WavCodeGenerator.prototype.generateControlSignal = function (inputData) {
 		h2s.manchesterPhase = manchesterPhase;
  
 		var data = new Array(synchronizationPreampleNumberOfBytes+dataLength);
+
+		for (var i = 0; i < data.length; i++) {
+			data[i] = 0;
+		}
 
 		for(var n=0;n<synchronizationPreampleNumberOfBytes;n++) data[n]=0;
 
