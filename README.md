@@ -3,7 +3,7 @@ New Attiny85 based edition with Bootloader to program it via sound.
 
 ## Documentation and Instructions
 
-See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
+See more documentation this wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki
 
 ## Web-Interface
 
