@@ -54,4 +54,25 @@ function init() {
         wg.playSignal(audioCtx, signal);
 
     }
+
+
+
+    document.querySelector('#sendControlSignal').onclick= function() {
+
+        var var1 = parseInt(document.querySelector('#controlVar1').value);
+        var var2 = parseInt(document.querySelector('#controlVar2').value);
+
+        var sig = wg.generateControlSignal([var1,var2]);
+        wg.playSignal(audioCtx, sig);
+
+        //debug
+        var res_sig = "";
+        for (var i = 0; i < sig.length; i++) {
+            res_sig += sig[i] + "\n";
+        }
+        document.querySelector('#hexDecoded').value= res_sig;
+
+
+
+    }
 }

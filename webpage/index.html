@@ -28,6 +28,15 @@
             <br/>startSequencePulses: <input type="number" min="0" max="500" value="40" step="1" name="startSequencePulses" id="startSequencePulses"> (default: 40)
             <br/>manchesterNumberOfSamplesPerBit: <input type="number" min="0" max="50" value="4" step="1" name="manchesterNumberOfSamplesPerBit" id="manchesterNumberOfSamplesPerBit"> (default: 4)
         </div>
+        <p></p>
+
+        <div>
+        Send control variable
+        <br/>var1: <input type="number" min="0" max="255" value="0" step="1" name="controlVar1" id="controlVar1"> 
+        <br/>var2: <input type="number" min="0" max="255" value="0" step="1" name="controlVar2" id="controlVar2"> 
+        <button type="button" id="sendControlSignal">Send Control Signal</button>
+
+        </div>
         <script src="decodeHexFile.js"></script>
         <script src="generateAudio.js"></script>
         <script src="hex2wav.js"></script>        
