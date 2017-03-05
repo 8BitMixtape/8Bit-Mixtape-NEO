@@ -5,6 +5,12 @@ New Attiny85 based edition with Bootloader to program it via sound.
 
 See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
 
+## Web-Interface
+
+Upload examples directly from the browser: https://8bitmixtape.github.io/
+
+Convert hex2Wav in browser and talk to your synth: https://8bitmixtape.github.io/8Bit-Mixtape-NEO/webpage/
+
 ## First Working prototypes
 See our first working prototype in the video: https://www.youtube.com/watch?v=9HnzJeK31R8
 
