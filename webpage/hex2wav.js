@@ -403,15 +403,7 @@ WavCodeGenerator.prototype.generatePageSignal = function (data) {
 		
 		this.frameSetup.addFrameParameters(frameData);
 
-//		for (var i = 0; i < frameData.length; i++) {
-//			console.log(frameData[i]);
-//		}
-
 		var signal=h2s.manchesterCoding(frameData);
-
-//		for (var i = 0; i < signal.length; i++) {
-//			console.log(signal[i]);
-//		}
 
 		return signal;
 };
@@ -450,8 +442,6 @@ WavCodeGenerator.prototype.generateSignal = function (data) {
 		var sigPointer=0;
 		var pagePointer=0;
 		
-		// console.log('total', total);
-
 		while(total>0)
 		{
 			this.frameSetup.setPageIndex(pagePointer++);
@@ -471,29 +461,18 @@ WavCodeGenerator.prototype.generateSignal = function (data) {
 						
 			signal=this.appendSignal(signal,sig);
 			signal=this.appendSignal(signal,this.silence(this.frameSetup.getSilenceBetweenPages()));
-			// console.log('siglen',signal.length)
-			for (var i = 0; i < signal.length; i++) {
-				//console.log(signal[i])
-			}
 			
 			total-=pl;
 		}
-		// console.log('total',total)
-
-		//console.log(signal.length);
 		
 		signal=this.appendSignal(signal,this.makeRunCommand()); // send mc "start the application"
 		// added silence at sound end to time out sound fading in some wav players like from Mircosoft
 		
-		// console.log('siglen',signal.length)
-
 		for(var k=0;k<10;k++)
 		{
 			signal=this.appendSignal(signal,this.silence(this.frameSetup.getSilenceBetweenPages()));
 		}
-		
-		// console.log('siglen end',signal.length)
-		
+				
 		return signal;
 };
 
