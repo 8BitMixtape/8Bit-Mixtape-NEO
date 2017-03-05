@@ -170,6 +170,29 @@ HexToSignal.prototype.manchesterCoding = function (hexdata) {
 
 }
 
+
+HexToSignal.prototype.getDifferentialManchesterCodedSignal = function (hexdata) {
+		var laenge = hexdata.length;
+		var signal = new Array((laenge*8)*this.manchesterNumberOfSamplesPerBit);
+		var counter = 0;
+
+		for (var count = 0; count < hexdata.length; count++) 
+		{
+			var dat = dat=hexdata[count];
+				for (var n = 0; n < 8; n++) 
+				{
+					if((dat&0x80)==0)
+						this.manchesterEdge(false,counter,signal); // low bit
+					else
+						counter += this.manchesterNumberOfSamplesPerBit;	
+
+					dat = dat << 1; // shift to next bit
+				}
+		}
+
+		return signal;
+}
+
 HexToSignal.prototype.flankensignal = function (hexdata) {
 
 	var intro=this.startSequencePulses*this.lowNumberOfPulses+this.numStartBits*this.highNumberOfPulses+this.numStopBits*this.lowNumberOfPulses;
@@ -474,55 +497,18 @@ WavCodeGenerator.prototype.generateSignal = function (data) {
 		return signal;
 };
 
-// WavCodeGenerator.prototype.saveWav = function (signal, fileName) {
-// // Calculate the number of frames required for specified duration
-// 			//long numFrames = (long)(duration * sampleRate);
-// 			var numFrames=signal.length;
-// 			// Create a wav file with the name specified as the first argument
-// 			//WavFile wavFile = WavFile.newWavFile(fileName, 2, numFrames, 16, sampleRate);
 
-// 			// Create a buffer of 100 frames
-// 			// var buffer = new double[2][100];
-// 			var buffer = createArray(100,2);
+WavCodeGenerator.prototype.playSignal = function (audioCtx, signal) {
+        var frameCount	= signal.length;       
+        var audio_buffer = audioCtx.createBuffer(1, frameCount, audioCtx.sampleRate);
 
-// 			// Initialize a local frame counter
-// 			var frameCounter = 0;
+        for(var i= 0; i<frameCount; i++) {
+            audio_buffer.getChannelData(0)[i]= signal[i];
+        }
+        
+        var src= audioCtx.createBufferSource();
 
-// 			// Loop until all frames written
-// 			while (frameCounter < numFrames)
-// 			{
-// 				// Determine how many frames to write, up to a maximum of the buffer size
-				
-// 				//todo: var remaining = wavFile.getFramesRemaining();
-// 				var toWrite = (remaining > 100) ? 100 : remaining;
-
-// 				// Fill the buffer, one tone per channel
-// 				for (var s=0 ; s<toWrite ; s++, frameCounter++)
-// 				{
-// 					if(frameCounter<signal.length)
-// 					{
-// 						buffer[0][s] = signal[frameCounter];
-// 						buffer[1][s] = signal[frameCounter];						
-// 					}else
-// 					{
-// 						buffer[0][s] = Math.sin(2.0 * Math.PI * 400 * frameCounter / this.sampleRate);
-// 						buffer[1][s] = Math.sin(2.0 * Math.PI * 500 * frameCounter / this.sampleRate);
-// 					}
-// 				}
-// 				// Write the buffer
-// 				wavFile.writeFrames(buffer, toWrite);
-// 			}
-
-// 			// Close the wavFile
-// 			wavFile.close();
-// };
-
-WavCodeGenerator.prototype.convertHex2Wav = function () {
-		//IntelHexFormat ih=new IntelHexFormat();
-		//byte[] erg = IntelHexFormat.IntelHexFormatToByteArray(hexFile);
-		//IntelHexFormat.anzeigen(erg);
-		//WavCodeGenerator w=new WavCodeGenerator();
-		//double[] signal=generateSignal(IntelHexFormat.toUnsignedIntArray(IntelHexFormat.discardHeaderBytes(erg)));
-		//saveWav(signal,wavFile);
-		return true;
+        src.buffer= audio_buffer;
+        src.connect(audioCtx.destination);
+        src.start();
 };

@@ -15,6 +15,9 @@ function init() {
         alert('Web Audio API is not supported in this browser');
     }
 
+    var wg = new WavCodeGenerator();
+
+
     //--hex data input
     document.querySelector('#hexfileInput').onchange= function(e) {
         var file= e.target.files[0];
@@ -43,26 +46,12 @@ function init() {
         document.querySelector('#hexDecoded').value= hex_string;
     }
     
-    var wg = new WavCodeGenerator();
 
     document.querySelector('#playButton').onclick= function() {
 
-        var hex_array = decodeHexFile(hex_string);
-        var signal = wg.generateSignal(hex_array);
+        var decoded_hex_array = decodeHexFile(hex_string);
+        var signal = wg.generateSignal(decoded_hex_array);
+        wg.playSignal(audioCtx, signal);
 
-        var frameCount= signal.length;
-        
-        var audio_buffer = audioCtx.createBuffer(1, frameCount, audioCtx.sampleRate);
-
-        for(var i= 0; i<frameCount; i++) {
-            audio_buffer.getChannelData(0)[i]= signal[i];
-        }
-        
-        var src= audioCtx.createBufferSource();
-
-        src.buffer= audio_buffer;
-        src.connect(audioCtx.destination);
-        src.start();
-    
     }
 }
