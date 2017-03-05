@@ -1,12 +1,14 @@
 # 8Bit Mixtape NEO
 New Attiny85 based edition with Bootloader to program it via sound.
 
+## Documentation and Instructions
+
+See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
+
 ## First Working prototypes
 See our first working prototype in the video: https://www.youtube.com/watch?v=9HnzJeK31R8
 
 ![Working prototype_taipei](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/FirstPrototype_Neo03/Tokyo_prototype_overview.jpg)
-
-See more documentation of the developments on this repo's wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki
 
 
 ## Background
@@ -28,49 +30,23 @@ see devel repo here:
 
 # Boards are being designed atm...
 
-![Special Edition Gong Xi Fa Cai](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/images_schematics/85SoundProg_MixTape_V03-NEO.jpg)
+![Special Edition Gong Xi Fa Cai](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/images/boards/Collage_boards.jpg)
 
 ![Making board in yogya](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/raw/master/boards/FirstPrototype_Neo03/AudioProgMixTape_MakingOf.png)
 
-See more boards on the wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki/Boards
+See more boards on the wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/2-Boards
 
 # Test your prototype
 
-Notes from our first testing phase: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki/Testing-the-prototype-Boards
+Notes from our first testing phase: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/3_5-Testing-the-prototypes
 
-# Discussing the schematics
-how to free even more pins on that little attiny85...
-
-## Version 0.8 Final - Changed Sound to PB1
+## Version 0.95 Final - Changed Sound to PB1
 
 ![](https://raw.githubusercontent.com/wiki/8BitMixtape/8bitMixTape-SoundProg2085/Schematics_85SoundProg_MixTape_V08.png)
 
-Parts:
-* R1-4: 10K \(Voltage dividers\)
-* R5: 10K \(Buttons to be tested\)
-* R6: 4K7 \(Buttons to be tested\)
-* R7: 100 \(NEO-Pixel data stabilizer\)
-* R8: 100 \(Output Filter\)
-* R9-10: LED resistor \(depends on color\)
-* Pot1-2: 10K lin \(Potentiometers\)
-* C1: 100nF \(SD-Prog de-coupling\)
-* C2: 1uF \(Output Filter\)
-* C3: 100nF \(Voltage stabilization\)
-* C4: 100nF \(de-coupling output?\)
-
-Pin Use:
-* PB0\(pin5\): NEO-pixels
-* PB1\(pin6\): Sound output \(parallel LED\)
-* PB2\(pin7\): \(A1\) Potentiometer \(right\), CV input
-* PB3\(pin2\): \(A3\) Buttons/Switch via Voltage-Dividers
-* PB4\(pin3\): \(A2\) Potentiometer \(left\), SD-Prog Jack-3.5mm Input
-* PB5\(pin1\): \(A0 \)kinda free pin, can be used for sync / gate signal and communication from the bootloader
-* GND\(pin4\):
-* Vcc\(pin8\): Power LED, stabilizing cap Vcc-GND. 
-
 ## Older versions
 
-See wiki: https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/wiki/Schematics-Discussion
+See wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/3_2-Schematics-Discussion
 
 # Basic stuff we need
 
