@@ -476,6 +476,31 @@ WavCodeGenerator.prototype.generateSignal = function (data) {
 		return signal;
 };
 
+WavCodeGenerator.prototype.generateControlSignal = function (inputData) {
+		
+		var manchesterPhase = 127;    // current phase for differential manchester coding
+		var manchesterNumberOfSamplesPerBit = 4; 
+		var synchronizationPreampleNumberOfBytes = 3;
+		var dataLength = inputData.length;
+
+		var h2s = new HexToSignal(this.fullSpeedFlag);
+
+		h2s.manchesterNumberOfSamplesPerBit = 4;
+		h2s.manchesterPhase = manchesterPhase;
+ 
+		var data = new Array(synchronizationPreampleNumberOfBytes+dataLength);
+
+		for(var n=0;n<synchronizationPreampleNumberOfBytes;n++) data[n]=0;
+
+		data[synchronizationPreampleNumberOfBytes-1]=0x1;
+
+		for(var n=0;n<dataLength;n++)data[synchronizationPreampleNumberOfBytes+n]=inputData[n];
+
+		var sig = h2s.getDifferentialManchesterCodedSignal(data);
+
+		return sig;
+
+}
 
 WavCodeGenerator.prototype.playSignal = function (audioCtx, signal) {
         var frameCount	= signal.length;       
