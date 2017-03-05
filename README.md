@@ -30,7 +30,7 @@ see devel repo here:
 
 # Boards are being designed atm...
 
-![Special Edition Gong Xi Fa Cai](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/images/boards/Collage_boards.jpg)
+![](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/images/boards/Collage_boards.jpg)
 
 ![Making board in yogya](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/raw/master/boards/FirstPrototype_Neo03/AudioProgMixTape_MakingOf.png)
 
@@ -50,16 +50,16 @@ See wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/3_2-Schematics-Di
 
 # Basic stuff we need
 
-Interface:
 * 2 potentiometers
 * 2 push-buttons
-* 1 Sound output PWM (PB0 is preferred) is also CV output in case of Sequencer code
+* 1 Sound output PWM (PB1 is preferred) is also CV output in case of Sequencer code
 * Sound-progger input
-* CV input
+* CV input (maybe 2 CV input
 * Master-clock or gate output
-* Sync-clock input
+* Sync-clock input (compatible to other voltages
 * 1 pin to communicate wiht the 8 NEO-pixels (is that cheating?)
-* what else?
+* what else? 
+* mic-4 ring jacks?
 
 # The Beginning...
 
