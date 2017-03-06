@@ -30,7 +30,7 @@ Not found anything yet for attiny, except that's it's a bit more challenging to 
 Can we maybe use the same bootloader to program via blinking lights?
 * https://www.wayneandlayne.com/blinky_programmer/
 
-# Bootloader in progress
+# Bootloader developed and works fine
 see devel repo here: 
 * Iyoks devel: https://github.com/ATtinyTeenageRiot/TinyAudioBoot
 * forked and improved by Chris: https://github.com/ChrisMicro/TinyAudioBoot
@@ -48,15 +48,15 @@ See more boards on the wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wik
 
 Notes from our first testing phase: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/3_5-Testing-the-prototypes
 
-## Version 0.95 Final - Changed Sound to PB1
+## Version 1.0
 
-![](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/images/schematics/NeopixelV095_uwe_updates.jpg)
+![](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/raw/master/boards/images_schematics/schematics_v11_8Bit-Mixtape-NEO.png)
 
 ## Older versions
 
 See wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/3_2-Schematics-Discussion
 
-# Basic stuff we need
+# Basic stuff we have
 
 * 2 potentiometers
 * 2 push-buttons
