@@ -40,6 +40,8 @@ see devel repo here:
 
 ![](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/images/boards/Collage_boards.jpg)
 
+![Making board in Taipei](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/raw/master/boards/8Bit-Mixtape-NEO_v1/Making_of_MixtapeNEO_Taipei.jpg)
+
 ![Making board in yogya](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/raw/master/boards/FirstPrototype_Neo03/AudioProgMixTape_MakingOf.png)
 
 See more boards on the wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/2-Boards
