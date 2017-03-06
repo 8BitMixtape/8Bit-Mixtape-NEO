@@ -1,6 +1,8 @@
 # 8Bit Mixtape NEO
 New Attiny85 based edition with Bootloader to program it via sound.
 
+![Working v10_taipei](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/raw/master/boards/images_schematics/8Bit-Mixtape_NEO_v10_giphy.gif)
+
 ## Documentation and Instructions
 
 See more documentation this wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki
