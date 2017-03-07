@@ -14,6 +14,13 @@ Upload examples directly from the browser: https://8bitmixtape.github.io/
 Convert hex2Wav in browser and talk to your synth: https://8bitmixtape.github.io/8Bit-Mixtape-NEO/webpage/
 
 ## First Working prototypes
+
+### Self-etched "Made in Taiwan"
+
+![](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/raw/master/boards/8Bit-Mixtape-NEO_v1/8BitMixtapeNEO_v10_stylePhoto.jpg)
+
+### Tokyo hand-solderer Prototype
+
 See our first working prototype in the video: https://www.youtube.com/watch?v=9HnzJeK31R8
 
 ![Working prototype_taipei](https://github.com/8BitMixtape/8bitMixTape-SoundProg2085/blob/master/boards/FirstPrototype_Neo03/Tokyo_prototype_overview.jpg)
