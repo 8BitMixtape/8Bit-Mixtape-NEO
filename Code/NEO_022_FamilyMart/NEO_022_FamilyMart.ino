@@ -9,18 +9,18 @@
                                              | |                              
      https://8bitmixtape.github.io/          |_|                    
     .------------------------------.                              ATTINY85 Pins
-    |↓↓  0  0  0  0  0  0  0  0  ↑↑|                              =============
-    |       8 Bit Mixtape NEO      |                                 _______
+    |↓↓\ 0  0  0  0  0  0  0  0 /↑↑|                              =============
+    |   \___8Bit Mixtape NEO___/   |                                 _______
     |        __  ______  __        |                                |   U   |                                     
     |       /  \|\.....|/  \       |       (SYNC-OUT) <- D5/A0  PB5-|       |- VCC                                
     |       \__/|/_____|\__/       |   SD -> *SD-prog -> D3/A3  PB3-| ATTINY|- PB2  D2/A1 <- POTI_RIGHT
-    |   v2.0 hardware by dusjagr   |   POTI_LEFT / CV -> D4/A2  PB4-|   85  |- PB1  D1    -> PWM SOUND
-    |       ________________       |                            GND-|       |- PB0  D0    -> NEOPIXELS
-    |______/_._o________o_._\______|                                |_______|
+    |   ________________________   |   POTI_LEFT / CV -> D4/A2  PB4-|   85  |- PB1  D1    -> PWM SOUND
+    |  |v2.0 hardware by dusjagr|  |                            GND-|       |- PB0  D0    -> NEOPIXELS
+    '=============================='                                |_______|
 
   * based on TinyAudioBoot and hex2wav by Chris Haberer, Fredrik Olofsson, Budi Prakosa
     https://github.com/ChrisMicro/AttinySound
-
+    
 =========================================================================================================
 The Center for Alternative Coconut Research presents:
 -----------------------------------------------------

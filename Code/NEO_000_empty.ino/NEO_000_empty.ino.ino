@@ -9,14 +9,14 @@
                                              | |                              
      https://8bitmixtape.github.io/          |_|                    
     .------------------------------.                              ATTINY85 Pins
-    |↓↓  0  0  0  0  0  0  0  0  ↑↑|                              =============
-    |       8 Bit Mixtape NEO      |                                 _______
+    |↓↓\ 0  0  0  0  0  0  0  0 /↑↑|                              =============
+    |   \___8Bit Mixtape NEO___/   |                                 _______
     |        __  ______  __        |                                |   U   |                                     
     |       /  \|\.....|/  \       |       (SYNC-OUT) <- D5/A0  PB5-|       |- VCC                                
     |       \__/|/_____|\__/       |   SD -> *SD-prog -> D3/A3  PB3-| ATTINY|- PB2  D2/A1 <- POTI_RIGHT
-    |   v2.0 hardware by dusjagr   |   POTI_LEFT / CV -> D4/A2  PB4-|   85  |- PB1  D1    -> PWM SOUND
-    |       ________________       |                            GND-|       |- PB0  D0    -> NEOPIXELS
-    |______/_._o________o_._\______|                                |_______|
+    |   ________________________   |   POTI_LEFT / CV -> D4/A2  PB4-|   85  |- PB1  D1    -> PWM SOUND
+    |  |v2.0 hardware by dusjagr|  |                            GND-|       |- PB0  D0    -> NEOPIXELS
+    '=============================='                                |_______|
 
   * based on TinyAudioBoot and hex2wav by Chris Haberer, Fredrik Olofsson, Budi Prakosa
     https://github.com/ChrisMicro/AttinySound
@@ -36,6 +36,8 @@ The Center for Alternative Coconut Research presents:
 ********************************************* list of outhors *******************************************
   v0.x  01.01.1999 -H-A-B-E-R-E-R-  various routines to read the 8Bit Mixtape NEO
   v0.1  13.03.2017 -D-U-S-J-A-G-R-  adapted to new schematics 0.95. different resistor values
+  v0.2  14.03.2017 -D-U-S-J-A-G-R-  geekint with ascii .·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>
+  v0.                               coming soon...
 
   It is mandatory to keep the list of authors in this code.
   Please add your name if you improve/extend something
@@ -89,7 +91,7 @@ int loopSiech;
                                        |_|                           
 ========================================================================================================================
    _________    
-  | 8Bit(x) |   uint8_t   getButton()                       -> 1 left, 2 right  3 both 
+  | 8Bit()  |   uint8_t   getButton()                       -> 1 left, 2 right  3 both 
   |  o___o  |   uint16_t  analogReadScaled(uint8_t channel) -> scale the adc of the voltage divider to a return value: 0..1023     
   |__/___\__|   
                 
@@ -122,7 +124,7 @@ uint16_t analogReadScaled(uint8_t channel)
                      |_|              
 ========================================================================================================================
    _________    
-  | NEO(x)  |   void setColorAllPixel(uint32_t color)                   -> Sets all the pixels to the same color
+  | NEO()   |   void setColorAllPixel(uint32_t color)                   -> Sets all the pixels to the same color
   |  o___o  |   void displayBinrayValue(uint16_t value, uint32_t color) -> displays binary number
   |__/___\__|   uint32_t Wheel(byte WheelPos)                           -> Input a value 0 to 255 to get a color value.   
                                                                         The colours are a transition r - g - b - back to r. 
@@ -195,7 +197,7 @@ uint32_t Wheel(byte WheelPos) {
       |___|                                                                                    
 ========================================================================================================================
    _________    
-  | 8Bit(x) |   void geileMucke()           -> coming soon
+  | synth() |   void geileMucke()           -> coming soon
   |  o___o  | 
   |__/___\__|   
                
