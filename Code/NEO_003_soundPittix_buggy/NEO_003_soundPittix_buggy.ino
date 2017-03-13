@@ -234,7 +234,6 @@ SIGNAL(TIMER1_COMPA_vect)
   flag ^= 0x01;
 }
 
-
 void setColorAllPixel(uint32_t color)
 {
   uint8_t n;
