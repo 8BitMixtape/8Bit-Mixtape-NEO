@@ -1,23 +1,24 @@
 /* 
 =========================================================================================================
- _____ ______ _ _     ___  ____      _                      _   _  _____ _____ 
-|  _  || ___ (_) |    |  \/  (_)    | |                    | \ | ||  ___|  _  |
- \ V / | |_/ /_| |_   | .  . |___  _| |_ __ _ _ __   ___   |  \| || |__ | | | |
- / _ \ | ___ \ | __|  | |\/| | \ \/ / __/ _` | '_ \ / _ \  | . ` ||  __|| | | |
-| |_| || |_/ / | |_   | |  | | |>  <| || (_| | |_) |  __/  | |\  || |___\ \_/ /
-\_____/\____/|_|\__|  \_|  |_/_/_/\_\\__\__,_| .__/ \___|  \_| \_/\____/ \___/ 
+ _____  ______ _ _      ___  ____      _                       _   _  _____ _____ 
+|  _  | | ___ (_) |     |  \/  (_)    | |                     | \ | ||  ___|  _  |
+ \ V /  | |_/ /_| |_    | .  . |___  _| |_ __ _ _ __   ___    |  \| || |__ | | | |
+ / _ \  | ___ \ | __|   | |\/| | \ \/ / __/ _` | '_ \ / _ \   | . ` ||  __|| | | |
+| |_| | | |_/ / | |_    | |  | | |>  <| || (_| | |_) |  __/   | |\  || |___\ \_/ /
+\_____/ \____/|_|\__|   \_|  |_/_/_/\_\\__\__,_| .__/ \___|   \_| \_/\____/ \___/ 
                                              | |                              
-  https://8bitmixtape.github.io/             |_|              ATTINY85 Pins  
-    .------------------------.                                =============
-    | -by dusjagr  OneLiners |                                    _______
-    |     __  ______  __     |                                   |   U   |                                     
-    |    /  \|\.....|/  \    |            SYNC-OUT <- D5/A0  PB5-|       |- VCC                                
-    |    \__/|/_____|\__/    |      SD-prog/button -> D3/A3  PB3-| ATTINY|- PB2  D2/A1 <- POTI_RIGHT
-    |    8Bit Mixtape NEO    |   POTI_LEFT / CV-IN -> D4/A2  PB4-|   85  |- PB1  D1    -> PWM SOUND
-    |    ________________    |                               GND-|       |- PB0  D0    -> NEOPIXELS
-    |___/_._o________o_._\___|                                   |_______|
+     https://8bitmixtape.github.io/          |_|                    
+    .------------------------------.                              ATTINY85 Pins
+    |↓↓  0  0  0  0  0  0  0  0  ↑↑|                              =============
+    |       8 Bit Mixtape NEO      |                                 _______
+    |        __  ______  __        |                                |   U   |                                     
+    |       /  \|\.....|/  \       |       (SYNC-OUT) <- D5/A0  PB5-|       |- VCC                                
+    |       \__/|/_____|\__/       |   SD -> *SD-prog -> D3/A3  PB3-| ATTINY|- PB2  D2/A1 <- POTI_RIGHT
+    |   v2.0 hardware by dusjagr   |   POTI_LEFT / CV -> D4/A2  PB4-|   85  |- PB1  D1    -> PWM SOUND
+    |       ________________       |                            GND-|       |- PB0  D0    -> NEOPIXELS
+    |______/_._o________o_._\______|                                |_______|
 
-  * based on AudioProgramming bootloader by 
+  * based on TinyAudioBoot and hex2wav by Chris Haberer, Fredrik Olofsson, Budi Prakosa
     https://github.com/ChrisMicro/AttinySound
 
 =========================================================================================================
@@ -27,14 +28,12 @@ The Center for Alternative Coconut Research presents:
   Description:
 
 *********************************************************************************************************
-  
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
 ********************************************* list of outhors *******************************************
-
   v0.x  01.01.1999 -H-A-B-E-R-E-R-  various routines to read the 8Bit Mixtape NEO
   v0.1  13.03.2017 -D-U-S-J-A-G-R-  adapted to new schematics 0.95. different resistor values
 

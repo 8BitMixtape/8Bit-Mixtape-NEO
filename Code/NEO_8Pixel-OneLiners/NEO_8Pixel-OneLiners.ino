@@ -9,7 +9,7 @@
                                              | |                              
      https://8bitmixtape.github.io/          |_|                    
     .------------------------------.                              ATTINY85 Pins
-    | ↓↓    0 0 0 0 0 0 0 0 0   ↑↑ |                              =============
+    |↓↓  0  0  0  0  0  0  0  0  ↑↑|                              =============
     |       8 Bit Mixtape NEO      |                                 _______
     |        __  ______  __        |                                |   U   |                                     
     |       /  \|\.....|/  \       |       (SYNC-OUT) <- D5/A0  PB5-|       |- VCC                                
@@ -24,7 +24,7 @@
 =========================================================================================================
 The Center for Alternative Coconut Research presents:
 -----------------------------------------------------
-  Oneliners for the hardware "8Bit Mixtape NEO"
+  8Pixel-OneLiners for the hardware "8Bit Mixtape NEO"
   Description:
 
   TO BE DONE!!!
