@@ -17,6 +17,9 @@
     |    ________________    |                               GND-|       |- PB0  D0    -> NEOPIXELS
     |___/_._o________o_._\___|                                   |_______|
 
+  * based on AudioProgramming bootloader by 
+    https://github.com/ChrisMicro/AttinySound
+
 =========================================================================================================
 The Center for Alternative Coconut Research presents:
 -----------------------------------------------------
