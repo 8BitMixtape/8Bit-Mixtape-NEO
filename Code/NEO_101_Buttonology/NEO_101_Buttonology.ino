@@ -24,23 +24,20 @@
 =========================================================================================================
 The Center for Alternative Coconut Research presents:
 -----------------------------------------------------
-  Empty sketch to edit
+  Family Mart Chime
   Description:
+  Plays arpeggios of chosen chords
+  Arpeggio
+  from http://fonte.me/arduino/#Arpeggio
 
 *********************************************************************************************************
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+  This code is released under the MIT license
+  http://opensource.org/licenses/MIT
 
 ********************************************* list of outhors *******************************************
-  v0.x  01.01.1999 -H-A-B-E-R-E-R-  various routines to read the 8Bit Mixtape NEO
-  v0.1  13.03.2017 -D-U-S-J-A-G-R-  adapted to new schematics 0.95. different resistor values
-  v0.2  14.03.2017 -D-U-S-J-A-G-R-  geekint with ascii .·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>
-  v0.                               coming soon...
-
-  It is mandatory to keep the list of authors in this code.
-  Please add your name if you improve/extend something
+  Copyright (c) 2012 Jeremy Fonte
+  code addapted to NEO: ChrisMicro
+  code adapted to play other tune: dusjagr
      _          _             
    _| |_ _ ___ |_|___ ___ ___ 
   | . | | |_ -|| | .'| . |  _|
@@ -49,22 +46,21 @@ The Center for Alternative Coconut Research presents:
 
 ****************************************************************************************************** */
 
+#include "pitches.h"
+
 #include <Adafruit_NeoPixel.h>
-#ifdef __AVR__                                     // Whaaadiiissiiiittt?
+#ifdef __AVR__
 #include <avr/power.h>
 #endif
 
 // hardware description / pin connections
-#define NEOPIXELPIN     0
 #define SPEAKERPIN      1
+#define NEOPIXELPIN     0
 #define POTI_RIGHT     A1
 #define POTI_LEFT      A2
 #define BUTTONS_ADC    A3
 
 #define NUMPIXELS      8
-
-// Initialize the NEO pixel library
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + NEO_KHZ800);
 
 // hardware calibration
 #define Vbutton_left   380
@@ -73,13 +69,23 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + N
 #define Vcc            37 // 3.7 V for LiPo
 #define Vdiv           26 // measure max Voltage on Analog In
 
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + NEO_KHZ800);
+
 // fast pin access
 #define AUDIOPIN (1<<SPEAKERPIN)
 #define PINLOW (PORTB&=~AUDIOPIN)
 #define PINHIGH (PORTB|=AUDIOPIN)
 
 // variables
+byte buttonState1 = LOW; 
+byte lastButtonState1 = LOW;
+byte buttonCount1 = 0;
+byte buttonReset1 = 4;
 
+byte buttonState2 = LOW; 
+byte lastButtonState2 = LOW;
+byte buttonCount2 = 0;
+byte buttonReset2 = 4;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Specific functions of the 8Bit Mixtape NEO
@@ -90,7 +96,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + N
                                        |_|                           
 ========================================================================================================================
    _________    
-  | 8Bit()  |   uint8_t   getButton()                       -> 1 left, 2 right  3 both 
+  | 8Bit(x) |   uint8_t   getButton()                       -> 1 left, 2 right  3 both 
   |  o___o  |   uint16_t  analogReadScaled(uint8_t channel) -> scale the adc of the voltage divider to a return value: 0..1023     
   |__/___\__|   
                 
@@ -106,73 +112,47 @@ uint8_t getButton()
   return button;
 }
 
+uint8_t getButtonState()
+{
+  uint8_t state = 0;
+  int x = getButton();
+  
+  if (x == 0) {
+    buttonState1 = LOW; // LOW means not pressed
+    buttonState2 = LOW; // LOW means not pressed
+  }
+  if (x == 1) buttonState1 = HIGH; // HIGH means pressed
+  if (x == 2) buttonState2 = HIGH;
+
+  if (buttonState1 != lastButtonState1 && buttonState1 == LOW) {
+    if (buttonState2 == LOW){
+    //do this on press of button 1
+       buttonCount1++;
+       if (buttonCount1 >= buttonReset1) {
+        buttonCount1 = 0;
+       }
+    }
+  }
+  
+  if (buttonState2 != lastButtonState2 && buttonState2 == LOW) {
+    if (buttonState1 == LOW){
+    //do this on press of button 2
+       buttonCount2++;
+       if (buttonCount2 >= buttonReset2) {
+        buttonCount2 = 0;
+       }
+    }
+  }
+
+  return state;
+}
+
 uint16_t analogReadScaled(uint8_t channel)
 {
   uint16_t value = analogRead(channel);
   value = value * Vcc / Vdiv;
   if (value > 1023) value = 1023;
   return value;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/* Specific functions of the NEO-Pixel Library
- _____ _____ _____        _         _ 
-|   | |   __|     |   ___|_|_ _ ___| |
-| | | |   __|  |  |  | . | |_'_| -_| |
-|_|___|_____|_____|  |  _|_|_,_|___|_|
-                     |_|              
-========================================================================================================================
-   _________    
-  | NEO()   |   void setColorAllPixel(uint32_t color)                   -> Sets all the pixels to the same color
-  |  o___o  |   void displayBinrayValue(uint16_t value, uint32_t color) -> displays binary number
-  |__/___\__|   uint32_t Wheel(byte WheelPos)                           -> Input a value 0 to 255 to get a color value.   
-                                                                        The colours are a transition r - g - b - back to r. 
-                void rainbowCycle(uint8_t wait, uint8_t rounds)         -> makes a Rainbow :-)  
-                
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-void displayBinrayValue(uint16_t value, uint32_t color)
-{
-  uint8_t n;
-  for (n = 0; n < NUMPIXELS; n++)
-  {
-    if (value & (1 << n)) pixels.setPixelColor(n, color);
-    //else pixels.setPixelColor(n,0); // off
-  }
-}
-
-void setColorAllPixel(uint32_t color)
-{
-  uint8_t n;
-  for (n = 0; n < NUMPIXELS; n++)
-  {
-    pixels.setPixelColor(n, color); // off
-  }
-}
-
-void rainbowCycle(uint8_t wait, uint8_t rounds, uint8_t rainbowPixels) {
-  uint16_t i, j;
-
-  for (j = 0; j < 256 * rounds; j++) { 
-    for (i = 0; i < rainbowPixels; i++) {
-      pixels.setPixelColor(i, Wheel(((i * 256 / rainbowPixels) + j) & 255));
-    }
-    pixels.show();
-    delay(wait);
-  }
-}
-
-uint32_t Wheel(byte WheelPos) {
-  WheelPos = 255 - WheelPos;
-  if (WheelPos < 85) {
-    return pixels.Color(255 - WheelPos * 3, 0, WheelPos * 3);
-  }
-  if (WheelPos < 170) {
-    WheelPos -= 85;
-    return pixels.Color(0, WheelPos * 3, 255 - WheelPos * 3);
-  }
-  WheelPos -= 170;
-  return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,8 +164,8 @@ uint32_t Wheel(byte WheelPos) {
       |___|                                                                                    
 ========================================================================================================================
    _________    
-  | synth() |   void playBeep(long freq_Hz, long duration_ms)
-  |  o___o  | 
+  | 8Bit(x) |   void playBeep(long freq_Hz, long duration_ms)
+  |  o___o  |   
   |__/___\__|   
                
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -208,6 +188,53 @@ void playBeep(long freq_Hz, long duration_ms)
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/* Specific functions of the NEO-Pixel Library
+ _____ _____ _____        _         _ 
+|   | |   __|     |   ___|_|_ _ ___| |
+| | | |   __|  |  |  | . | |_'_| -_| |
+|_|___|_____|_____|  |  _|_|_,_|___|_|
+                     |_|              
+========================================================================================================================
+   _________    
+  | NEO(x)  |   void setWhiteAllPixel(uint32_t color)                   -> Sets all the pixels to the white level
+  |  o___o  |   void displayBinrayValue(uint16_t value, uint32_t color) -> displays binary number
+  |__/___\__|   uint32_t Wheel(byte WheelPos)                           -> Input a value 0 to 255 to get a color value.   
+                                                                        The colours are a transition r - g - b - back to r. 
+                                
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+void setWhiteAllPixel(uint32_t color)
+{
+  uint8_t n;
+  for (n = 0; n < NUMPIXELS; n++)
+  {
+    pixels.setPixelColor(n, color, color, color);
+  }
+}
+
+void displayBinrayValue(uint16_t value, uint32_t color)
+{
+  uint8_t n;
+  for (n = 0; n < NUMPIXELS; n++)
+  {
+    if (value & (1 << n)) pixels.setPixelColor(n, color);
+    //else pixels.setPixelColor(n,0); // off
+  }
+}
+
+uint32_t Wheel(byte WheelPos) {
+  WheelPos = 255 - WheelPos;
+  if (WheelPos < 85) {
+    return pixels.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+  }
+  if (WheelPos < 170) {
+    WheelPos -= 85;
+    return pixels.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+  }
+  WheelPos -= 170;
+  return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* the setup routine runs once when you start the tape or press reset
@@ -219,21 +246,17 @@ void playBeep(long freq_Hz, long duration_ms)
                                |_|    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-void setup() {
-  
-#if defined (__AVR_ATtiny85__)                               // Whaaadiiissiiiittt?
+void setup()
+{
+#if defined (__AVR_ATtiny85__)
   if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 #endif
 
-  //analogReference( INTERNAL2V56 );                        //still discussing it...
+  pixels.begin(); // This initializes the NeoPixel library.
+  pixels.setBrightness(50);
+  
   pinMode(SPEAKERPIN, OUTPUT);
-  
-  pixels.begin();                                           // This initializes the NeoPixel library.
-  pixels.setBrightness(40);                                 // Woooowww!! They are sooo bright!
-  setColorAllPixel(Wheel(220));
-  pixels.show(); // This sends the updated pixel color to the hardware.
-  
-  playBeep(330,100);
+  playBeep(330,80);
   delay(100);
 
 }
@@ -248,8 +271,29 @@ void setup() {
                          |_| 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-void loop() { 
+void loop()
+{
+ 
+  //read the buttons
+  uint8_t x = getButtonState();
 
+  //uint8_t x = getButtonCount();
+  
+  setWhiteAllPixel(10);
+  pixels.setPixelColor(buttonCount1, Wheel(170));
+  pixels.setPixelColor(NUMPIXELS-buttonCount2-1, Wheel(220));
+  pixels.show(); // This sends the updated pixel color to the hardware.
+
+  if (buttonCount1 == 3)  {
+    //playBeep(440,100);
+  }
+  
+  if (buttonCount2 == 3)  {
+    //playBeep(220,100);
+  }
+    
+  lastButtonState1 = buttonState1;
+  lastButtonState2 = buttonState2;
+  
 }
-
 

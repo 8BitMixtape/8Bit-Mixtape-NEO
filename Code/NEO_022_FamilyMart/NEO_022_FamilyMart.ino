@@ -79,10 +79,15 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + N
 // variables
 uint16_t speedPoti;
 uint16_t colorPoti;
-byte buttonState1 = 1; 
-byte lastButtonState1 = 1;
-byte buttonState2 = 1; 
-byte lastButtonSate2 = 1;
+byte buttonState1 = LOW; 
+byte lastButtonState1 = LOW;
+byte buttonCount1 = 0;
+byte buttonReset1 = 4;
+
+byte buttonState2 = LOW; 
+byte lastButtonState2 = LOW;
+byte buttonCount2 = 0;
+byte buttonReset2 = 4;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Specific functions of the 8Bit Mixtape NEO
@@ -107,6 +112,41 @@ uint8_t getButton()
   if (analogRead(BUTTONS_ADC) < Vbutton_both) button = 3;
 
   return button;
+}
+
+uint8_t getButtonState()
+{
+  uint8_t state = 0;
+  int x = getButton();
+  
+  if (x == 0) {
+    buttonState1 = LOW; //high means not pressed
+    buttonState2 = LOW; 
+  }
+  if (x == 1) buttonState1 = HIGH; // low means pressed
+  if (x == 2) buttonState2 = HIGH;
+
+  if (buttonState1 != lastButtonState1 && buttonState1 == LOW) {
+    if (buttonState2 == LOW){
+    //do this on press of button 1
+       buttonCount1++;
+       if (buttonCount1 >= buttonReset1) {
+        buttonCount1 = 0;
+       }
+    }
+  }
+  
+  if (buttonState2 != lastButtonState2 && buttonState2 == LOW) {
+    if (buttonState1 == LOW){
+    //do this on press of button 2
+       buttonCount2++;
+       if (buttonCount2 >= buttonReset2) {
+        buttonCount2 = 0;
+       }
+    }
+  }
+
+  return state;
 }
 
 uint16_t analogReadScaled(uint8_t channel)
@@ -271,26 +311,19 @@ void loop()
   noteDuration_ms = speedPoti;
 
   //read the buttons
-  uint8_t x = getButton();
-  if (x == 0) {
-    buttonState1 = HIGH; 
-    buttonState2 = HIGH; 
+  uint8_t x = getButtonState();
+  
+  if (buttonCount2 == 1)  {
+    //playMart(c); //
   }
-  if (x == 1) buttonState1 = LOW; 
-  if (x == 2) buttonState2 = LOW;
-
-  if (buttonState1 != lastButtonState1 && buttonState1 == HIGH) {
-    //list any chord sequence here by calling playArp(chord)
     
-    while( getButton()==0); {
-       playMart(c);
-    }
-  }
-      while( getButton()==0); {
-       playMart(c);
-    }
-
+  setColorAllPixel (0);
+  pixels.setPixelColor(buttonCount1, Wheel(170));
+  pixels.setPixelColor(NUMPIXELS-buttonCount2-1, Wheel(220));
+  pixels.show(); // This sends the updated pixel color to the hardware.
+    
   lastButtonState1 = buttonState1;
-
+  lastButtonState2 = buttonState2;
+  
 }
 
