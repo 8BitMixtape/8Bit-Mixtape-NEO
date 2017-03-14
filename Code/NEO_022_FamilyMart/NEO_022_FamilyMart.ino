@@ -69,11 +69,6 @@ The Center for Alternative Coconut Research presents:
 #define Vcc            37 // 3.7 V for LiPo
 #define Vdiv           26 // measure max Voltage on Analog In
 
-// variables
-uint16_t speedPoti;
-uint16_t colorPoti;
-
-
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + NEO_KHZ800);
 
 // fast pin access
@@ -82,6 +77,12 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + N
 #define PINHIGH (PORTB|=AUDIOPIN)
 
 // variables
+uint16_t speedPoti;
+uint16_t colorPoti;
+byte buttonState1 = 1; 
+byte lastButtonState1 = 1;
+byte buttonState2 = 1; 
+byte lastButtonSate2 = 1;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Specific functions of the 8Bit Mixtape NEO
@@ -269,11 +270,27 @@ void loop()
   pauseBetweenNotes=speedPoti*110/100;
   noteDuration_ms = speedPoti;
 
-  //list any chord sequence here by calling playArp(chord)
-  playMart(c);
+  //read the buttons
+  uint8_t x = getButton();
+  if (x == 0) {
+    buttonState1 = HIGH; 
+    buttonState2 = HIGH; 
+  }
+  if (x == 1) buttonState1 = LOW; 
+  if (x == 2) buttonState2 = LOW;
 
-// wait for button
-    while( getButton()==0);
+  if (buttonState1 != lastButtonState1 && buttonState1 == HIGH) {
+    //list any chord sequence here by calling playArp(chord)
+    
+    while( getButton()==0); {
+       playMart(c);
+    }
+  }
+      while( getButton()==0); {
+       playMart(c);
+    }
+
+  lastButtonState1 = buttonState1;
 
 }
 
