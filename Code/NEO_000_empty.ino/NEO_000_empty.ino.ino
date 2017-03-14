@@ -62,7 +62,6 @@ The Center for Alternative Coconut Research presents:
 #define BUTTONS_ADC    A3
 
 #define NUMPIXELS      8
-#define RAINBOWPIXELS  19
 
 // Initialize the NEO pixel library
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + NEO_KHZ800);
@@ -80,7 +79,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + N
 #define PINHIGH (PORTB|=AUDIOPIN)
 
 // variables
-int loopSiech;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Specific functions of the 8Bit Mixtape NEO
@@ -151,27 +150,16 @@ void setColorAllPixel(uint32_t color)
   }
 }
 
-void rainbowCycle(uint8_t wait, uint8_t rounds) {
+void rainbowCycle(uint8_t wait, uint8_t rounds, uint8_t rainbowPixels) {
   uint16_t i, j;
 
-  for (j = 0; j < 256 * rounds; j++) { // 5 cycles of all colors on wheel
-    for (i = 0; i < RAINBOWPIXELS; i++) {
-      pixels.setPixelColor(i, Wheel(((i * 256 / RAINBOWPIXELS) + j) & 255));
+  for (j = 0; j < 256 * rounds; j++) { 
+    for (i = 0; i < rainbowPixels; i++) {
+      pixels.setPixelColor(i, Wheel(((i * 256 / rainbowPixels) + j) & 255));
     }
-    uint16_t brightosiech = 256 - (analogReadScaled(POTI_RIGHT)>>2);
     if (brightosiech >= 255) brightosiech = 255;
-    uint16_t speedosiech = (1023 - analogReadScaled(POTI_LEFT))>>7;
-    pixels.setBrightness(brightosiech);
     pixels.show();
-    delay(speedosiech);
-
-    uint8_t x = getButton();
-    if (x == 2) {
-      loopSiech = 0;
-    }
-    else {
-      loopSiech = 1;
-    }
+    delay(wait);
   }
 }
 
