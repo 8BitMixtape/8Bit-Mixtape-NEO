@@ -24,20 +24,21 @@
 =========================================================================================================
 The Center for Alternative Coconut Research presents:
 -----------------------------------------------------
-  Family Mart Chime
+  Testing the buttins
   Description:
-  Plays arpeggios of chosen chords
-  Arpeggio
-  from http://fonte.me/arduino/#Arpeggio
-
+  
 *********************************************************************************************************
-  This code is released under the MIT license
-  http://opensource.org/licenses/MIT
-
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
 ********************************************* list of outhors *******************************************
-  Copyright (c) 2012 Jeremy Fonte
-  code addapted to NEO: ChrisMicro
-  code adapted to play other tune: dusjagr
+  v0.x  31.12.1999 -H-A-B-E-R-E-R-  various routines to read the 8Bit Mixtape NEO
+  v0.1  14.03.2017 -D-U-S-J-A-G-R-  testing a way to count and check buttons
+
+  It is mandatory to keep the list of authors in this code.
+  Please add your name if you improve/extend something
      _          _             
    _| |_ _ ___ |_|___ ___ ___ 
   | . | | |_ -|| | .'| . |  _|
