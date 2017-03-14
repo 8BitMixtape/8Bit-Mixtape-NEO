@@ -46,8 +46,6 @@ The Center for Alternative Coconut Research presents:
 
 ****************************************************************************************************** */
 
-#include "pitches.h"
-
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
 #include <avr/power.h>
@@ -253,7 +251,7 @@ void setup()
 #endif
 
   pixels.begin(); // This initializes the NeoPixel library.
-  pixels.setBrightness(50);
+  pixels.setBrightness(80);
   
   pinMode(SPEAKERPIN, OUTPUT);
   playBeep(330,80);
@@ -279,7 +277,7 @@ void loop()
 
   //uint8_t x = getButtonCount();
   
-  setWhiteAllPixel(10);
+  setWhiteAllPixel(5);
   pixels.setPixelColor(buttonCount1, Wheel(170));
   pixels.setPixelColor(NUMPIXELS-buttonCount2-1, Wheel(220));
   pixels.show(); // This sends the updated pixel color to the hardware.
