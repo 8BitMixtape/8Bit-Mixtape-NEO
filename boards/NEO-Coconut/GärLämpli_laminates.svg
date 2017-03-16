@@ -116,9 +116,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="798.53407"
-     inkscape:cy="-194.63209"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-290.07261"
+     inkscape:cy="-473.84232"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -135,7 +135,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -24329,7 +24329,10 @@
     </g>
     <g
        transform="matrix(1.8414592,0,0,1.8414592,-2575.724,48.890614)"
-       id="g86499">
+       id="g86499"
+       inkscape:export-filename="/home/dusjagr/Documents/dusjagr_labs/hackteria/GärLämpli/diy-CAD_dp-session/garLampli_schematics.png"
+       inkscape:export-xdpi="110.12371"
+       inkscape:export-ydpi="110.12371">
       <rect
          y="587.33276"
          x="824.9046"
