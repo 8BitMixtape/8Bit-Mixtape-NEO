@@ -29,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.57875767"
-     inkscape:cx="383.79611"
-     inkscape:cy="516.50145"
+     inkscape:zoom="0.81848695"
+     inkscape:cx="225.78155"
+     inkscape:cy="816.0262"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -98,11 +98,11 @@
        id="rect5364"
        width="350.34976"
        height="258.73465"
-       x="171.54225"
+       x="171.54227"
        y="97.689758" />
     <image
        y="101.90467"
-       x="174.88934"
+       x="-516.37842"
        id="image5374"
        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAEdoAAA0VCAYAAAAuDIpxAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAALiMAAC4jAHM9rsvAAAAB3RJTUUH4QMQEyooQss2MwAAABl0RVh0Q29tbWVudABDcmVhdGVk
@@ -13609,7 +13609,19 @@ AAAAAABghPw/P2HS4nZbFMEAAAAASUVORK5CYII=
 "
        preserveAspectRatio="none"
        height="248.66325"
-       width="339.32251" />
+       width="339.32251"
+       transform="scale(-1,1)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:27.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="163.71672"
+       y="82.890427"
+       id="text5396"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5398"
+         x="163.71672"
+         y="82.890427">ALWAYS MIRROR THE MASK</tspan></text>
   </g>
   <g
      inkscape:label="Layer 1"
