@@ -96,8 +96,8 @@ uint32_t Wheel(byte WheelPos) {
   int16_t showPixel = 0;
   int blinkeSpeed = 3;
   int updateSpeed = 1000;
-  int lowTemp = 10;
-  int maxTemp = 70;
+  int lowTemp = 20;
+  int maxTemp = 50;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
