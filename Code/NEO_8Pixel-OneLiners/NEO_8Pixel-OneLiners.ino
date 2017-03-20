@@ -212,13 +212,13 @@ void loop() {
   if (valuePoti < 10) {
     buttonState2 = LOW;
     if (outputStyle == 1) {
-      pixels.setBrightness(255/bright);
+      pixels.setBrightness(bright);
       setColorAllPixel(Wheel(count+7<<5));
       pixels.show();
       delay(10000);
       }
     if (outputStyle == 0) {
-      pixels.setBrightness(255/bright);
+      pixels.setBrightness(bright);
       rainbowCycle(6,2);
       setColorAllPixel(Wheel(count+7<<5));
       pixels.show();
@@ -234,7 +234,7 @@ void loop() {
   }
   if (buttonState2 != lastButtonState2 && buttonState2 == HIGH) {
     setColorAllPixel(Wheel(count+7<<5));
-    pixels.setBrightness(255/bright);
+    pixels.setBrightness(bright);
     pixels.show();
     delay(20000);
     outputStyle++; 
@@ -288,7 +288,7 @@ void loop() {
     if (t % 1  == 0) {
       setColorAllPixel(Wheel((count+7)<<5));
       pixels.setPixelColor(count, 0xFFFFFF);
-      pixels.setBrightness(((snd+30) & 255)/bright);
+      pixels.setBrightness(((snd+30) & bright));
       pixels.show();
     }
   }
@@ -297,7 +297,7 @@ void loop() {
     if (t % 1  == 0) {
       setColorAllPixel(Wheel(snd % 255));
       pixels.setPixelColor(count, Wheel(count+7<<5));
-      pixels.setBrightness(((snd+30) & 255)/bright);
+      pixels.setBrightness(((snd+30) & bright));
       pixels.show();
     }
   }  

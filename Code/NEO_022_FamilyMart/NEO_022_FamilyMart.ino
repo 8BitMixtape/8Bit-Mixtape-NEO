@@ -314,7 +314,7 @@ void loop()
   uint8_t x = getButtonState();
   
   if (buttonCount2 == 1)  {
-    //playMart(c); //
+    playMart(c); //
   }
     
   setColorAllPixel (0);
