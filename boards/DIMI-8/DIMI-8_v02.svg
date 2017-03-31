@@ -16,7 +16,7 @@
    id="svg5902"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="DIMI-8.svg"
+   sodipodi:docname="DIMI-8_v02.svg"
    inkscape:export-filename="/home/dusjagr/Documents/sgmk/8bit_mixedTape/8Bit-Mixtape-NEO/boards/DIMI-8/DIMI-8_copper_v01.png"
    inkscape:export-xdpi="1199.8961"
    inkscape:export-ydpi="1199.8961">
@@ -40,9 +40,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.41101835"
-     inkscape:cx="-108.37861"
-     inkscape:cy="493.89937"
+     inkscape:zoom="1.1625354"
+     inkscape:cx="393.1151"
+     inkscape:cy="269.91332"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -61,7 +61,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

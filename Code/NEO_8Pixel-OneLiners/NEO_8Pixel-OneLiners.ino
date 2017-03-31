@@ -173,7 +173,7 @@ void setup() {
 void loop() {
   // check left pot
   uint16_t valuePotiLeft = analogReadScaled(POTI_LEFT);
-  bright = 80;
+  bright = 30;
   //bright = valuePotiLeft >> 6;
   
   
