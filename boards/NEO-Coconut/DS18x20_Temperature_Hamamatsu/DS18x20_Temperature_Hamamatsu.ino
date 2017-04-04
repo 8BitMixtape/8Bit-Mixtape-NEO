@@ -98,7 +98,7 @@ uint32_t Wheel(byte WheelPos) {
   int blinkeSpeed = 3;
   int updateSpeed = 1000;
   int lowTemp = 20;
-  int maxTemp = 32;
+  int maxTemp = 80;
 
 #define SPEAKERPIN      1
 
