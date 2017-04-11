@@ -34,8 +34,8 @@ $fs=0.1;
 //ScrewPort = (2*BeamWidth+ScrewDiam)/BeamWidth;
 boxLength = pcbHeight+backDepth-overlap+2*woodThickness;
 
-//Output_Type = "STL";
-Output_Type = "DXF"; //[DXF,STL,single]
+Output_Type = "STL";
+//Output_Type = "DXF"; //[DXF,STL,single]
 //Output_Type = "single";
 
 // Assembly the Model

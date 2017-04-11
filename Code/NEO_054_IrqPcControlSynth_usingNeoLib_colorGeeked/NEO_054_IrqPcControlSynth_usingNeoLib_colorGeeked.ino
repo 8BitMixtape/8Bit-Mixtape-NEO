@@ -119,7 +119,7 @@ int16_t oldPotiRight;
 void setup()
 {
   neobegin();
-  pixels.setBrightness(255);
+  pixels.setBrightness(100);
   // show leds
   setColorAllPixel(pixels.Color(80, 0, 80));
   pixels.show(); // This sends the updated pixel color to the hardware.
@@ -151,7 +151,7 @@ void showState()
   pixels.setPixelColor(ButtonSelector1, COLOR_DARKGREEN);
 
   pixels.setPixelColor(7 - ButtonSelector2, COLOR_RED);
-  pixels.setBrightness(255);
+  pixels.setBrightness(100);
   pixels.show();
 }
 

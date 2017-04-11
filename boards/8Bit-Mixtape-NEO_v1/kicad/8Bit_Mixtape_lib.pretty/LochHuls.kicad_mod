@@ -1,0 +1,9 @@
+(module LochHuls (layer F.Cu) (tedit 578D5101)
+  (fp_text reference "" (at 0 3.81) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value "" (at 0 -3.81) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad 1 thru_hole circle (at 0 0) (size 5.4 5.4) (drill 5) (layers *.Cu *.Mask F.SilkS))
+)
