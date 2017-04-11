@@ -14,6 +14,13 @@
 #define NEOPIXELPIN    0
 #define NUMPIXELS      8
 
+  int blinkeSpeed = 3;
+  int updateSpeed = 1000;
+  int lowTemp = 20;
+  int maxTemp = 32;
+  int statusLED = (maxTemp-10) * 3;
+  int hell = 255;
+
 OneWire  ds(ONEWIREPIN);  // on pin 10 (a 4.7K resistor is necessary)
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + NEO_KHZ800);
@@ -95,10 +102,7 @@ uint32_t Wheel(byte WheelPos) {
   float celsius, fahrenheit;
   int16_t raw;
   int16_t showPixel = 0;
-  int blinkeSpeed = 3;
-  int updateSpeed = 1000;
-  int lowTemp = 20;
-  int maxTemp = 80;
+
 
 #define SPEAKERPIN      1
 
@@ -167,7 +171,7 @@ void setup(void) {
   //Serial.begin(9600);
   //Serial.println("reboot");
   pinMode(SPEAKERPIN, OUTPUT);
-  int brightness = 100;
+  int brightness = hell;
   
   pixels.begin();
   pixels.setBrightness(brightness);
@@ -235,7 +239,7 @@ void loop(void) {
     //Serial.println();
     ds.reset_search();
     
-    pixels.setPixelColor(0, Wheel(220));
+    pixels.setPixelColor(0, Wheel(statusLED));
     pixels.show();
     delay(updateSpeed/blinkeSpeed/4);
     return;
