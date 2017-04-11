@@ -5,7 +5,11 @@ New Attiny85 based edition with Bootloader to program it via sound.
 
 ## Documentation and Instructions
 
-See more documentation this wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki
+## Arduino IDE-Integration
+
+Add this to your additional hardware manager: http://8bitmixtape.github.io/package_8bitmixtape_index.json
+
+See more on:  https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/4_3-IDE-integration
 
 ## Web-Interface
 
