@@ -5,7 +5,7 @@ New Attiny85 based edition with Bootloader to program it via sound.
 
 ## Documentation and Instructions
 
-![8BitMixtapeNEO_v20_TaiwanReady.jpg]({{site.baseurl}}/8BitMixtapeNEO_v20_TaiwanReady.jpg)
+It's all on the wiki...
 
 ## Arduino IDE-Integration
 
