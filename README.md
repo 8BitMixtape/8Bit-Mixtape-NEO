@@ -90,9 +90,8 @@ Late night geeking at Iyok's ego-lab...
 
 After years of geeking around wiht all these versions of 8bit Mixtapes...
 
-http://lifepatch.org/8-bit_Mixtape
+[http://lifepatch.org/8-bit_Mixtape](http://lifepatch.org/8-bit_Mixtape)
 
 or 
 
-http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape
-
+[http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape](http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape)
