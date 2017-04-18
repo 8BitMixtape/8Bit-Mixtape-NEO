@@ -1,14 +1,16 @@
 // CC-BY - Design by dusjagr, 2017
 // DIMI-8 Chistli
 // As part of the 
+// 起酵 khí-kànn = Gär (fermentation) in Taiwanese
+// 燈仔 Teng-á = Lämpli (little Lamp) in Taiwanese
 
 Show_Circuit = "YES"; //[YES,NO]
-Logo = "NO"; //[YES,NO]
+Logo = "YES"; //[YES,NO]
 ExtraSides = "NO";
 
 pcbWidth = 92; // Dimi 138 - Unagi 92
 pcbHeight = 38; // Dimi 92 - Unagi 38
-backDepth = 58; // Dimi 65 - Unagi 52
+backDepth = 58; // Dimi 65 - Unagi 52??55?
 BeamWidth = 4; // [4:10]
 boxHeight = 30; // Dimi 45 - Unagi 30
 overlap = 2;
@@ -21,7 +23,7 @@ RoundEdge = 8;
 /*[Material]*/
 
 pcbThickness = 3;	//[3:8]
-woodThickness =3; //[1:6]
+woodThickness =5; //[1:6]
 blendThickness = 3; //[1:6]
 lidThickness = 3; //[1:6]
 screwDiam = 1.6;
@@ -42,7 +44,7 @@ Output_Type = "STL";
 
 if (Output_Type == "single"){
    
-   translate ([0,0,0]) screwPort();
+   translate ([0,0,0]) frameBack();
    //import("interace.dxf", convexity=3);
 }
 
@@ -70,8 +72,8 @@ if (Output_Type == "DXF"){
 
 if (Output_Type == "STL"){
 
-//translate ([-pcbWidth/2,0,boxHeight-blendThickness-pcbThickness-woodThickness]) PCB();
-//translate ([-pcbWidth/2+BeamWidth,pcbHeight-overlap,boxHeight-blendThickness]) backLid();
+translate ([-pcbWidth/2,0,boxHeight-blendThickness-pcbThickness-woodThickness]) PCB();
+translate ([-pcbWidth/2+BeamWidth,pcbHeight-overlap,boxHeight-blendThickness]) backLid();
     
 // Frame    
 translate ([pcbWidth/2-BeamWidth,0,boxHeight-(3*woodThickness+pcbThickness)]) innerBeam();   
@@ -89,7 +91,7 @@ translate ([pcbWidth/2-BeamWidth,0,boxHeight-blendThickness]) topBeam();
 translate ([pcbWidth/2-BeamWidth,0,boxHeight-blendThickness-woodThickness]) extraBeam();  
 translate ([-pcbWidth/2,0,boxHeight-blendThickness]) topBeam(); 
    translate ([-pcbWidth/2,0,boxHeight-blendThickness-woodThickness]) extraBeam();  
-//translate ([-pcbWidth/2,0,boxHeight*coverRatio]) rotate ([90,0,0]) coverFront();
+translate ([-pcbWidth/2,0,boxHeight*coverRatio]) rotate ([90,0,0]) coverFront();
 
 translate ([-pcbWidth/2,pcbHeight+backDepth-overlap+blendThickness,boxHeight*backRatio]) rotate ([90,0,0]) coverBack();
 
@@ -110,10 +112,9 @@ module PCB()
   color("DarkKhaki") translate([pcbWidth*0.2,pcbHeight-woodThickness,0]) cube([pcbWidth*0.6,pcbThickness,pcbThickness],false);
   
   if (Show_Circuit == "YES"){
- //color("Gold") 
-    //translate ([3,0,pcbThickness])import("interace.dxf", convexity=3);
- //color("DimGray") 
-     //translate ([0,0,pcbThickness]) linear_extrude(height = 10, center = true, convexity = 10, twist = 0) import("garlampli.dxf", convexity=3);
+ //color("Gold") translate ([3,0,pcbThickness])import("interace.dxf", convexity=3);
+ color("DimGray") 
+     translate ([0,0,pcbThickness]) linear_extrude(height = 10, center = true, convexity = 10, twist = 0) import("garlampli.dxf", convexity=3);
      
  
      
@@ -220,7 +221,7 @@ module frameMiddle()
 }
 
 module frameShelf()
-{color("Gold"){
+{color("SaddleBrown"){
   difference(){
     cube([pcbWidth,backDepth-overlap-woodThickness,woodThickness],false);
     //translate([0,0,-1]) cube([pcbWidth*1,woodThickness,woodThickness*2],false);

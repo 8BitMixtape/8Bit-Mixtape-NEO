@@ -16,8 +16,8 @@
 
   int blinkeSpeed = 3;
   int updateSpeed = 1000;
-  int lowTemp = 20;
-  int maxTemp = 50;
+  int lowTemp = 0;
+  int maxTemp = 30;
   int statusLED = (maxTemp-10) * 3;
   int hell = 255;
 
