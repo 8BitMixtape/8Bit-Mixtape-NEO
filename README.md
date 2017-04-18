@@ -5,7 +5,13 @@ New Attiny85 based edition with Bootloader to program it via sound.
 
 ## Documentation and Instructions
 
-See more documentation this wiki: https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki
+It's all on the wiki...
+
+## Arduino IDE-Integration
+
+Add this to your additional hardware manager: http://8bitmixtape.github.io/package_8bitmixtape_index.json
+
+See more on:  https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki/4_3-IDE-integration
 
 ## Web-Interface
 
@@ -86,9 +92,8 @@ Late night geeking at Iyok's ego-lab...
 
 After years of geeking around wiht all these versions of 8bit Mixtapes...
 
-http://lifepatch.org/8-bit_Mixtape
+[http://lifepatch.org/8-bit_Mixtape](http://lifepatch.org/8-bit_Mixtape)
 
 or 
 
-http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape
-
+[http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape](http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape)
