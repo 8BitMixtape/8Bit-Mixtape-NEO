@@ -15,11 +15,11 @@
 #define NUMPIXELS      8
 #define SPEAKERPIN     1
 
-#define hell          85 // Brightness
+#define hell          25 // Brightness
 #define lowTemp        6
 #define maxTemp       25
-#define warnTemp      12
-#define warnAlarm     10 // How often it beeps when below warnTemp
+#define warnTemp      30
+#define warnAlarm     2 // How often it beeps when below warnTemp
 
   int updateSpeed = 1000; // maybe 750ms is enough, maybe not
   uint8_t warnCount = 0;
@@ -231,7 +231,7 @@ void loop(void) {
 
     ds.reset_search();
     
-    pixels.setPixelColor(0, Wheel(statusLED));
+    pixels.setPixelColor(1, Wheel(statusLED));
     pixels.show();
     delay(updateSpeed>>3);
     return;
@@ -284,7 +284,7 @@ void loop(void) {
   tempColor = map(celsius, lowTemp, maxTemp, 160, 0);
   if (tempColor < 10) tempColor = 10;
   if (tempColor > 180) tempColor = 180;
-  for (int n = 1; n <= 7; n++) {
+  for (int n = 0; n <= 7; n++) {
       pixels.setPixelColor(n, Wheel(tempColor));
     }
 

@@ -20,8 +20,8 @@ RoundEdge = 8;
 
 /*[Material]*/
 
-pcbThickness = 2;	//[3:8]
-woodThickness =3; //[1:6]
+pcbThickness = 1.6;	//[3:8]
+woodThickness =5; //[1:6]
 blendThickness = 3; //[1:6]
 lidThickness = 3; //[1:6]
 screwDiam = 2;

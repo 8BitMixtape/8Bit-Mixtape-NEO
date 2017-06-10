@@ -49,6 +49,8 @@ uint8_t  LedNumber = 0;
 uint16_t Red = 0;
 uint16_t Green = 0;
 uint16_t Blue = 0;
+uint16_t Helligkeit = 70;
+
 
 #define LoopTime_ms 5
 
@@ -119,9 +121,9 @@ int16_t oldPotiRight;
 void setup()
 {
   neobegin();
-  pixels.setBrightness(100);
+  pixels.setBrightness(Helligkeit);
   // show leds
-  setColorAllPixel(pixels.Color(80, 0, 80));
+  setColorAllPixel(pixels.Color(Helligkeit, 0, Helligkeit));
   pixels.show(); // This sends the updated pixel color to the hardware.
 
   // start sound
@@ -144,8 +146,8 @@ uint8_t ButtonSelector2 = 0;
 
 void showState()
 {
-  setColorAllPixel(pixels.Color(50, 0, 50));
-  displayBinaryValue( 0b11111000 ,  pixels.Color(0, 50, 50)); // display the value as binary on 8 NEO leds
+  setColorAllPixel(pixels.Color(Helligkeit, 0, Helligkeit));
+  displayBinaryValue( 0b11111000 ,  pixels.Color(0, Helligkeit, Helligkeit)); // display the value as binary on 8 NEO leds
  
 
   pixels.setPixelColor(ButtonSelector1, COLOR_DARKGREEN);
