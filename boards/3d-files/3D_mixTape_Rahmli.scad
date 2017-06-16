@@ -1,11 +1,11 @@
     // MixTape 3d Printed Case///////////////////////////
 
 plugHeight = 7; // [6:10]
-tapeHeight = 9; //
+tapeHeight = 9.5; //
 topThickness = 1.6; 
 
-PCB();
-parts();
+//PCB();
+//parts();
 
 difference(){
     
