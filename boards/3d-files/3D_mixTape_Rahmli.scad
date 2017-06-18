@@ -1,7 +1,7 @@
     // MixTape 3d Printed Case///////////////////////////
 
-plugHeight = 7; // [6:10]
-tapeHeight = 9.5; //
+plugHeight = 11; // [6:10]
+tapeHeight = 10.5; //
 topThickness = 1.6; 
 
 //PCB();
@@ -16,16 +16,16 @@ difference(){
     translate([83.5,50,tapeHeight-plugHeight+topThickness]) cube([13,20,plugHeight+1],false);
     
     // write protectors 
-    translate([10,0,0.5*tapeHeight+1.6]) cube([4,0.5,4],true);
+    translate([10,0,0.5*tapeHeight+1.6]) cube([4,1,4],true);
     translate([14,0,0.5*tapeHeight+1.6]) cube([4,3,4],true);
-    translate([89,0,0.5*tapeHeight+1.6]) cube([4,0.5,4],true);
+    translate([89,0,0.5*tapeHeight+1.6]) cube([4,1,4],true);
     translate([85,0,0.5*tapeHeight+1.6]) cube([4,3,4],true);
 
     // Power signs
-    translate([41,0,0.5*tapeHeight+1.6]) cube([4,2,1],true);
-    translate([41,0,0.5*tapeHeight+1.6]) cube([1,2,4],true);
+    translate([41,0,0.5*tapeHeight+1.6]) cube([4,1.5,1],true);
+    translate([41,0,0.5*tapeHeight+1.6]) cube([1,1.5,4],true);
     
-    translate([58,0,0.5*tapeHeight+1.6]) cube([4,2,1],true); 
+    translate([58,0,0.5*tapeHeight+1.6]) cube([4,1.5,1],true); 
 }
 
 
@@ -56,9 +56,9 @@ module tapeBody(){
         translate ([0,0,0.6]) linear_extrude(height = 12, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_MainCase.dxf", convexity=3);
     
     //Face holes
-    translate([25,64,0.5*tapeHeight+topThickness]) cube([12,4,0.8*tapeHeight],true);
-    translate([49.5,64,0.5*tapeHeight+topThickness]) cube([16,4,0.8*tapeHeight],true);
-    translate([74.3,64,0.5*tapeHeight+topThickness]) cube([12,4,0.8*tapeHeight],true);
+    translate([25,64,0.5*tapeHeight+topThickness]) cube([12,4,0.7*tapeHeight],true);
+    translate([49.5,64,0.5*tapeHeight+topThickness]) cube([16,4,0.7*tapeHeight],true);
+    translate([74.3,64,0.5*tapeHeight+topThickness]) cube([12,4,0.7*tapeHeight],true);
       
     translate([36,65,0.5*tapeHeight+topThickness]) cube([4,4,0.6*tapeHeight],true);
     translate([63,65,0.5*tapeHeight+topThickness]) cube([4,4,0.6*tapeHeight],true);
