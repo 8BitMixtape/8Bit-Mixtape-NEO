@@ -107,16 +107,16 @@ void loop()
 
   if (State == 1)
   {
-    lp1.setT((255-rp)*8);
+    lp1.setT((255-rp)*4);
     setAmplitude(lp1.filter(0));
     Counter--;
     if (Counter == 0)
     {
 
-      Counter = lp;
+      Counter = 1023 - lp;
 
-      if (Counter > 500) Counter = 500;
-      if (Counter < 50) Counter = 50;
+      if (Counter > 800) Counter = 800;
+      if (Counter < 2) Counter = 2;
 
 
       LedPosition++;
