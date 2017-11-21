@@ -8,11 +8,10 @@ Follow on github:
 and more documentation on the SGMK wiki:
 [8Bit Mixtape wiki](http://wiki.sgmk-ssam.ch/wiki/8bit_Mix_Tape)
 
-===
 
-![](images/8BitMiniMixtape.png?resize=600,700&classes=center)
+![](images/8BitMiniMixtape.png)
 
-[svg file](https://drive.google.com/file/d/1f34tNAanpTxGhBGjaw8ItSKMCPLtoQXs/view?usp=sharing)
+[svg file](8BitMiniMixtape-TLV.svg)
 
 ##### PCB Layout Design
 ![](images/23660021_10214969347166209_453065840_o.jpg?resize=980,600&classes=center)  
