@@ -19,7 +19,7 @@ and more documentation on the SGMK wiki:
 ![](images/miniPlan.jpg?resize=190,350&classes=center)
 ![](images/MiniPlan2.jpg?resize=190,350&classes=left)
 
-##### Flexible PCB Process Using Photoresist Dry Film & Pyralux
+##### Flexible PCB Photolithography Process Using Photoresist Dry Film & Pyralux
 UV Exposure 1:45 Min  
 
 Soudium Carbonate 2g:200ml water  
@@ -32,14 +32,14 @@ video soon...
 ##### Etching Using Ferric chloride
 ferric 1:1 water  
 
-(we Should Ditch the ferric and switch to NaSO4 approx 200-300g per liter water)
+(we Should Ditch the ferric and switch to NaPS approx 200-300g per liter water at 50C)
 
 ![](images/miniEtched.jpg?resize=900,550&classes=left)
 ![](images/miniDone.jpg?resize=900,550&classes=center)
 * Made Few design mistakes with 3535 LEDS Pads... fixed now!!
 
-##### First working Mini Mixtape Test! Toner Transfer on FR4 Clad
-Etched With NaSO4 & Assembled by The 8Bit Mixtape Guru Master Marc Dusseiller Dusjagr!!!
+##### First working Mini Mixtape Test! on FR4 Clad
+Etched With NaPS & Assembled by The 8Bit Mixtape Guru Master Marc Dusseiller Dusjagr!!!
 
 ![](images/MarcEtchin.jpg?resize=550,350&classes=left)
 ![](images/MarcDone.jpg?resize=550,350&classes=left)
