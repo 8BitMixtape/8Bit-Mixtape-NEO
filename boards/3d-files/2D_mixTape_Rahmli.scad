@@ -1,20 +1,27 @@
-    // MixTape 3d Printed Case///////////////////////////
+////// MixTape 3d Printed Case///////////////////////////
+
+// 
 
 plugHeight = 9.8; // [6:10]
-tapeHeight = 10.0; //
+tapeHeight = 11.5; //
 topThickness = 1.6; 
 
+bottom_wall_thickness = 2;
+
 usb_charger = false;
-cutout_aux_ports = true;
+cutout_aux_ports = false;
 
-rotate([55,0,$t*380]) translate([-50,0,0]){
-
+//rotate([55,0,$t*380]) translate([-50,0,0]){
+rotate([0,0,0]) translate([0,0,0]){
 PCB();
 parts();
 
 difference(){
     
-    FullCase();
+    union(){
+        tapeBody();
+        tapeTop();
+    }
     
     // Plugs 
     translate([2.5,50,tapeHeight-plugHeight+topThickness]) cube([13,20,plugHeight+1],false); 
@@ -22,17 +29,17 @@ difference(){
     
     // write protectors 
     translate([10,0,0.5*tapeHeight+1.6]) cube([4,1,4],true);
-    translate([14,0,0.5*tapeHeight+1.6]) cube([4,3,4],true);
+    translate([13.9,0,0.5*tapeHeight+1.6]) cube([4,3,4],true);
     translate([89,0,0.5*tapeHeight+1.6]) cube([4,1,4],true);
-    translate([85,0,0.5*tapeHeight+1.6]) cube([4,3,4],true);
+    translate([85.1,0,0.5*tapeHeight+1.6]) cube([4,3,4],true);
 
     // Power signs
-    if (!usb_charger) {
-        translate([41,0,0.5*tapeHeight+1.6]) cube([4,1.5,1],true);
-        translate([41,0,0.5*tapeHeight+1.6]) cube([1,1.5,4],true);
+    //if (!usb_charger) {
+    //    translate([41,0,0.5*tapeHeight+1.6]) cube([4,1.5,1],true);
+    //    translate([41,0,0.5*tapeHeight+1.6]) cube([1,1.5,4],true);
     
-        translate([58,0,0.5*tapeHeight+1.6]) cube([4,1.5,1],true); 
-    }
+    //    translate([58,0,0.5*tapeHeight+1.6]) cube([4,1.5,1],true); 
+    //}
 }
 }
 
@@ -45,52 +52,61 @@ module FullCase(){
 // Modules ///////////////////////////////
 
 module PCB(){
- color("DarkKhaki") 
-    translate ([0,0,tapeHeight+1.6]) linear_extrude(height = 1.6, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_bottom.dxf", convexity=3);
- color("Gold") 
-     translate ([0,0,tapeHeight+3.2]) linear_extrude(height = 0.2, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_PCB.dxf", convexity=3);
-    
- color("DarkKhaki") 
-    translate ([0,0,tapeHeight+2*topThickness]) linear_extrude(height = 1.6, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_PCB_TrapezBoard.dxf", convexity=3);
- color("Gold") 
-     translate ([0,0,tapeHeight+3*topThickness]) linear_extrude(height = 0.2, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_PCB_TrapezCircuit.dxf", convexity=3);
+color("DarkKhaki") 
+translate ([0,0,tapeHeight+1.6]) linear_extrude(height = 1.6, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_bottom.dxf", convexity=3);
+color("Gold") 
+translate ([0,0,tapeHeight+3.2]) linear_extrude(height = 0.2, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_PCB.dxf", convexity=3);
+
+color("DarkKhaki") 
+translate ([0,0,tapeHeight+2*topThickness]) linear_extrude(height = 1.6, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_PCB_TrapezBoard.dxf", convexity=3);
+color("Gold") 
+translate ([0,0,tapeHeight+3*topThickness]) linear_extrude(height = 0.2, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_PCB_TrapezCircuit.dxf", convexity=3);
 }
 
 module tapeBody(){ 
-  difference(){ 
-    //color("Deeppink") 
-    translate ([0,0,1.6]) linear_extrude(height = tapeHeight, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_bottom.dxf", convexity=3);  
-    
-     if (!usb_charger) {
-        translate ([0,0,0.6]) linear_extrude(height = 12, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_MainCase.dxf", convexity=3);
-     } else {
-         translate ([0,0,0.6]) linear_extrude(height = 12, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_MainCase_USB.dxf", convexity=3);
-     }
-    
-    //Face holes
-    translate([25,64,0.5*tapeHeight+topThickness]) cube([12,4,0.7*tapeHeight],true);
-    if (!usb_charger) { translate([49.5,64,0.5*tapeHeight+topThickness]) cube([16,4,0.7*tapeHeight],true); }
-    translate([74.3,64,0.5*tapeHeight+topThickness]) cube([12,4,0.7*tapeHeight],true);
+    difference(){
+        union(){
+            difference(){ 
+                //color("Deeppink") 
+                translate ([0,0,1.6]) linear_extrude(height = tapeHeight, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_bottom.dxf", convexity=3);  
+
+                //if (!usb_charger) {
+                    //translate ([0,0,0.6]) linear_extrude(height = tapeHeight+4, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_MainCase.dxf", convexity=3);
+                //} else {
+                    //translate ([0,0,0.6]) linear_extrude(height = tapeHeight+4, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_MainCase_USB.dxf", convexity=3);
+                //}
       
-    translate([36,65,0.5*tapeHeight+topThickness]) cube([4,4,0.6*tapeHeight],true);
-    translate([63,65,0.5*tapeHeight+topThickness]) cube([4,4,0.6*tapeHeight],true);
-    
-    if (usb_charger) {
-        // cutout usb port
-        translate([49.5,64,0.5*tapeHeight+topThickness+3]) cube([20,14,0.7*tapeHeight+4],true);
+                //Face holes
+                translate([25,64,0.5*tapeHeight+topThickness]) cube([12,4,0.7*tapeHeight],true);
+                if (!usb_charger) { 
+                    translate([49.5,64,0.5*tapeHeight+topThickness]) cube([16,4,0.7*tapeHeight],true); 
+                }
+                translate([74.3,64,0.5*tapeHeight+topThickness]) cube([12,4,0.7*tapeHeight],true);
+
+                translate([36,65,0.5*tapeHeight+topThickness]) cube([4,4,0.7*tapeHeight],true);
+                translate([63,65,0.5*tapeHeight+topThickness]) cube([4,4,0.7*tapeHeight],true);
+
+                if (usb_charger) {
+                    // cutout usb port
+                    translate([49.5,64,0.5*tapeHeight+topThickness+3])cube([20,14,0.7*tapeHeight+4],true);
+                }
+
+
+                if (cutout_aux_ports) {
+                    translate([1.5,23,0.5*tapeHeight+topThickness+3]) cube([20,12,tapeHeight],true);
+                    translate([90,23,0.5*tapeHeight+topThickness+3]) cube([20,12,tapeHeight],true);      
+                }
+            }
+            translate([49.5,7.05,0.5*tapeHeight+topThickness]) cube([90,14,1*tapeHeight],true);
+        } //end union
+        // wall thickness
+        translate([49.5,22.5+bottom_wall_thickness,0.5*tapeHeight+topThickness-1]) cube([90,45,1*tapeHeight+7],true);
+        translate([49.5,40+bottom_wall_thickness,0.5*tapeHeight+topThickness-1]) cube([65,35,0.7*tapeHeight+7],true);
+    } // end difference
+    //color("DarkKhaki") 
+    if (!usb_charger) {
+    //translate([40,0.05,1.6]) cube([20,10,2.5],false);
     }
-    if (cutout_aux_ports) {
-        translate([1.5,23,0.5*tapeHeight+topThickness+3]) cube([20,12,0.7*tapeHeight],true);
-        translate([90,23,0.5*tapeHeight+topThickness+3]) cube([20,12,0.7*tapeHeight],true);      
-    }
-     
-  }
-  
-  
-  //color("DarkKhaki") 
-  if (!usb_charger) {
-    translate([40,0.05,1.6]) cube([20,10,2.5],false);
-  }
 }
 
 module tapeTop(){ 
