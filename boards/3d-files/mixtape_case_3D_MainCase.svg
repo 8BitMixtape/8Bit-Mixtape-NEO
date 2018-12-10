@@ -14,7 +14,7 @@
    viewBox="0 0 351.14121 230.01516"
    id="svg4322"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.2 (30a58d1, 2017-08-07)"
    sodipodi:docname="mixtape_case_3D_MainCase.svg">
   <defs
      id="defs4324" />
@@ -26,14 +26,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="155.12598"
-     inkscape:cy="144.81164"
+     inkscape:cx="107.39192"
+     inkscape:cy="122.64807"
      inkscape:document-units="px"
      inkscape:current-layer="g11717"
      showgrid="false"
-     inkscape:window-width="1321"
-     inkscape:window-height="744"
-     inkscape:window-x="45"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      fit-margin-top="0"
@@ -187,10 +187,10 @@
          sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 226.84648,1028.7416 0,-52.27544 -28.78934,0 0,22.63562 -98.419358,0 -12.142857,-12.14286 0,-131.95468 56.511625,0 0.16237,-7.86083 -10.34312,-36.23899 4.80366,-9.38555 206.93689,0 5.5,9.38555 -9.99136,35.88822 -0.13502,9.28303 59.41209,0 0,133.52247 -11.62269,11.62266 -102.03135,0 0,-23.74449 -27.27412,0 0,53.53809 z"
+         d="m 226.84648,1028.7416 v -19.2541 H 198.05714 99.637782 L 79.047907,986.95892 V 851.25424 h 61.208643 l 0.16237,-4.11083 -10.34312,-36.23899 1.05366,-15.04862 h 221.93689 l 1.75,15.04862 -9.99136,35.88822 -0.13502,5.53303 h 63.16209 v 137.27247 l -19.12269,19.88936 H 286.69802 259.4239 v 21.5269 z"
          id="path4208"
          inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccccccccccccccccccccc" />
+         sodipodi:nodetypes="ccccccccccccccccccccc" />
     </g>
   </g>
 </svg>
