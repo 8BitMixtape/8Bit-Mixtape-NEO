@@ -14,8 +14,8 @@
    viewBox="0 0 351.14121 230.01516"
    id="svg4322"
    version="1.1"
-   inkscape:version="0.92.2 (30a58d1, 2017-08-07)"
-   sodipodi:docname="mixtape_case_3D_exports.svg">
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="mixtape_case_3D_TopTrapez.svg">
   <defs
      id="defs4324" />
   <sodipodi:namedview
@@ -26,14 +26,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="235.60838"
-     inkscape:cy="114.94092"
+     inkscape:cx="146.30696"
+     inkscape:cy="105.7489"
      inkscape:document-units="px"
      inkscape:current-layer="g11717"
      showgrid="false"
-     inkscape:window-width="1855"
-     inkscape:window-height="1056"
-     inkscape:window-x="65"
+     inkscape:window-width="1321"
+     inkscape:window-height="744"
+     inkscape:window-x="45"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      fit-margin-top="0"
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -173,12 +173,6 @@
          id="path11036"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
-      <path
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 226.84648,1028.7416 v -19.2541 H 198.05714 99.637782 L 79.047907,986.95893 V 851.25424 h 61.208643 l 0.16237,-4.11083 -10.34312,-36.23899 1.05366,-15.04862 h 221.93689 l 1.75001,15.04862 -9.99136,35.88822 -0.13502,5.53303 h 63.16208 v 137.27248 l -19.12268,19.88935 H 286.69802 259.4239 v 21.5269 z"
-         id="path4208"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccccccccccccccccccc" />
     </g>
   </g>
 </svg>
