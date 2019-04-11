@@ -12,18 +12,22 @@ screwHoleSize = 1;
 bottom_wall_thickness = 2;
 
 usb_charger = false;
-cutout_aux_ports = false;
+cutout_aux_ports = true;
+volume_wheel = true;
+screws_port = false;
 
 //rotate([55,0,$t*380]) translate([-50,0,0]){
-rotate([0,0,0]) translate([0,0,0]){
+rotate([0,180,0]) translate([0,0,0]){
 //PCB();
 //parts();
 
 difference(){
     
     union(){
-        tapeBody_screws();
-        tapeTop_screws();
+        //tapeBody_screws();
+        //tapeTop_screws();
+        tapeBody();
+        tapeTop();
         //FullCase();
     }
     
@@ -52,17 +56,17 @@ module tapeBody_screws(){
     
     difference(){
         tapeBody();
-        screwHolebtop();
-        screwHolebottom();
+        //screwHolebtop();
+        //screwHolebottom();
         //speakerHole();
     }
 }   
 module tapeTop_screws(){
     difference(){
         tapeTop();
-        screwHolebtopcover();
-        screwHolebtop();
-        screwHolebottom();
+        //screwHolebtopcover();
+        //screwHolebtop();
+        //screwHolebottom();
     }    
 }   
 
@@ -101,7 +105,9 @@ module tapeBody(){
                 //} else {
                     //translate ([0,0,0.6]) linear_extrude(height = tapeHeight+4, center = false, convexity = 10, twist = 0) import("mixtape_case_3D_MainCase_USB.dxf", convexity=3);
                 //}
-      
+                // cut out for SMD parts below
+            translate([86,48,1*tapeHeight+topThickness+3]) cube([10,6,tapeHeight],true);
+                
                 //Face holes
                 translate([25,64,0.5*tapeHeight+topThickness]) cube([12,2,0.7*tapeHeight],true);
                 if (!usb_charger) { 
@@ -117,30 +123,47 @@ module tapeBody(){
                     translate([49.5,64,0.5*tapeHeight+topThickness+3])cube([20,14,0.7*tapeHeight+4],true);
                 }
 
-
+                // Side Aux Ports
                 if (cutout_aux_ports) {
-                    translate([1.5,23,0.5*tapeHeight+topThickness+3]) cube([20,12,tapeHeight],true);
-                    translate([90,23,0.5*tapeHeight+topThickness+3]) cube([20,12,tapeHeight],true);      
+                   translate([1.5,22,0.8*tapeHeight+topThickness+4.8]) cube([20,12,tapeHeight],true);
+                   translate([90,22,0.8*tapeHeight+topThickness+4.8]) cube([20,12,tapeHeight],true);      
+                }
+                
+                // Volume Wheel
+                if (volume_wheel) {
+                    translate([90,40,0.8*tapeHeight+topThickness+4]) cube([20,17,tapeHeight],true);      
                 }
             }
             translate([49.5,7.05,0.5*tapeHeight+topThickness]) cube([90,14,1*tapeHeight],true);
+            
         } //end union
         
         
     // wall thickness
-        translate([49.5,22.5+bottom_wall_thickness,0.5*tapeHeight+topThickness-1]) cube([93,45.6,1*tapeHeight+7],true);
+        translate([49.5,24+bottom_wall_thickness,0.5*tapeHeight+topThickness-1]) cube([93.2,42,1*tapeHeight+7],true);
+        
+    translate([49.5,1.8+bottom_wall_thickness,0.5*tapeHeight+topThickness-1]) cube([90,3.4,1*tapeHeight+7],true);
+    
+    translate([5.1, 4.3 + 0, tapeHeight+topThickness-(tapeHeight)-1   ]) cylinder(h=tapeHeight*1.5, r=2.2, center=false, ,$fn=30);
+    translate([94, 4.3 + 0, tapeHeight+topThickness-(tapeHeight)-1   ]) cylinder(h=tapeHeight*1.5, r=2.2, center=false, ,$fn=30);  
+        
         translate([49.5,40+bottom_wall_thickness+2.8,0.5*tapeHeight+topThickness-1]) cube([65,35,0.7*tapeHeight+7],true);
     } // end difference
+    
+    
+    
     //color("DarkKhaki") 
     if (!usb_charger) {
     //translate([40,0.05,1.6]) cube([20,10,2.5],false);
     }
     
     //screw left
+    if (screws_port){
   translate([4 - 0 , 46.640 + 0, tapeHeight+topThickness-(tapeHeight)   ]) cylinder(h=tapeHeight*1, r=2.8, center=false, ,$fn=30);   
   translate([95 - 0 , 46.640 + 0, tapeHeight+topThickness-(tapeHeight)   ]) cylinder(h=tapeHeight*1, r=2.8, center=false, ,$fn=30); 
   translate([4 - 0 , 2.80 + 0, tapeHeight+topThickness-(tapeHeight)   ]) cylinder(h=tapeHeight*1, r=2.5, center=false, ,$fn=30);   
   translate([95 - 0 , 2.80 + 0, tapeHeight+topThickness-(tapeHeight)   ]) cylinder(h=tapeHeight*1, r=2.5, center=false, ,$fn=30); 
+    }
 }
 
 
