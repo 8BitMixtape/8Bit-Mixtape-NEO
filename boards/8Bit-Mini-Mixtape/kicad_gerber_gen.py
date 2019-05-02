@@ -113,10 +113,10 @@ print base_name
 drill_file = os.path.dirname(filename) + "/plot/" + base_name
 print 'drill file: '+ drill_file
 
-if os.path.exists(drill_file+ "-00.drl"):
-    print 'file exists, skip rename'
-else:
-    os.rename(drill_file+ ".drl", drill_file+ "-00.drl")
+#if os.path.exists(drill_file+ "-00.drl"):
+#    print 'file exists, skip rename'
+#else:
+#    os.rename(drill_file+ ".drl", drill_file+ "-00.drl")
 
 if os.name == 'nt':
     os.system(gerbv_path+'/gerbv.exe '+ os.path.dirname(filename)+'/plot/*')
