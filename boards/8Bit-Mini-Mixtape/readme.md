@@ -1,3 +1,6 @@
+[![Watch the video](https://i.imgur.com/pc0LF0S.png)](https://idiot.io/wp-content/uploads/8BitMiniMixtape/8BitMiniMixtapeBraclet.mp4)
+
+
 #### Joining the 8Bit Mixtape Madness!!  
 
 Discussion group on all kinda codes, soundzz and new developments for the 8Bit-Mixtape.  
