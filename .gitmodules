@@ -1,0 +1,3 @@
+[submodule "boards/8Bit-Mini-Mixtape"]
+	path = boards/8Bit-Mini-Mixtape
+	url = https://github.com/idiot-io/8Bit-Mini-Mixtape.git
